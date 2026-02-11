@@ -94,8 +94,7 @@ Once    changes are pulled and you've made sure they're actually compatible, com
 By default, `config/settings_data.json` is ignored.
 If you want to version control site settings:
 
-1. Comment  out `config/settings_data.json` in `.shopifyignore`
-2. Run `shopify theme pull`
+Comment out `config/settings_data.json` in `.gitignore`
 
-**Warning:** Pushing this file to Shopify will overwrite live store settings. We *strongly* recommend keeping it ignored.
+**Warning:** We *strongly* recommend keeping it ignored.
 
