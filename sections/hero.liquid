@@ -744,7 +744,53 @@
       }
     }
   }
+
 {% endstylesheet %}
+
+{%- if section.settings.toggle_decorative_border -%}
+  {% liquid
+    assign url_c = 'border-corner.svg' | asset_url
+    assign url_h = 'border-horizontal.svg' | asset_url
+    assign url_v = 'border-vertical.svg' | asset_url
+  %}
+  <style>
+    #Hero-{{ section.id }} {
+      --b-c: url('{{ url_c }}');
+      --b-h: url('{{ url_h }}');
+      --b-v: url('{{ url_v }}');
+      --inset: 8px;
+      --rail: 38px;
+      & .hero__media-grid::before,
+      & .hero__media-grid::after,
+      & .hero__container::after {
+        content: '';
+        position: absolute;
+        z-index: var(--layer-flat);
+        pointer-events: none;
+      }
+      & .hero__media-grid::before {
+        inset: var(--inset);
+        background:
+          var(--b-c) 0 0 no-repeat,
+          var(--b-c) 100% 0 no-repeat,
+          var(--b-c) 0 100% no-repeat,
+          var(--b-c) 100% 100% no-repeat;
+      }
+      & .hero__media-grid::after {
+        inset: var(--inset) var(--rail);
+        background:
+          var(--b-h) 0 0 repeat-x,
+          var(--b-h) 0 100% repeat-x;
+      }
+      & .hero__container::after {
+        inset: var(--rail) var(--inset);
+        background:
+          var(--b-v) 0 0 repeat-y,
+          var(--b-v) 100% 0 repeat-y;
+      }
+    }
+  </style>
+{%- endif -%}
 
 {% schema %}
 {
@@ -781,6 +827,16 @@
     "groups": ["header"]
   },
   "settings": [
+    {
+      "type": "header",
+      "content": "Border"
+    },
+    {
+      "type": "checkbox",
+      "id": "toggle_decorative_border",
+      "label": "Decorative SVG border",
+      "default": true
+    },
     {
       "type": "header",
       "content": "t:content.media_1"

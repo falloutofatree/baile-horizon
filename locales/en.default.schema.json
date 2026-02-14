@@ -320,6 +320,7 @@
     "header": "Header",
     "heading": "Heading",
     "hero": "Hero",
+    "hero_border": "Hero: Border",
     "hero_bottom_aligned": "Hero: Bottom aligned",
     "hero_marquee": "Hero: Marquee",
     "icon": "Icon",
