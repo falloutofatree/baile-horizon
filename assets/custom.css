@@ -1,0 +1,34 @@
+/* Custom Fonts */
+
+@font-face {
+  font-family: 'Americana';
+  src: url('americana-regular.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Americana';
+  src: url('americana-bold.woff2') format('woff2');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --font-heading--family: "Americana", serif;
+  --font-subheading--family: "Americana", serif;
+  --font-accent--family: "Americana", serif;
+  --font-h1--family: "Americana", serif;
+  --font-h2--family: "Americana", serif;
+  --font-h3--family: "Americana", serif;
+  --font-h4--family: "Americana", serif;
+  --font-h5--family: "Americana", serif;
+  --font-h6--family: "Americana", serif;
+}
+
+/* Align product cards to bottom of grid */
+.resource-list--grid {
+  align-items: baseline;
+}

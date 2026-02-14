@@ -5,6 +5,10 @@
 # Theme Settings (keep this here to make sure you don't wipe out live store settings!!!)
 config/settings_data.json
 
+# AI-gen stuff
+blocks/ai_gen_*
+sections/ai_gen_*
+
 # OS junk
 .DS_Store
 .DS_Store?
