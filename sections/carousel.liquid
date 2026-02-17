@@ -19,6 +19,22 @@
   {% content_for 'block', type: 'group', id: 'static-header' %}
 
   {% content_for 'block', type: '_carousel-content', id: 'static-carousel-content', closest.product: null %}
+
+  {% if section.settings.show_svg_border %}
+    <style>
+      .section-carousel .product-card { position: relative; }
+      .section-carousel .product-card::after {
+        content: '';
+        position: absolute;
+        inset: -4px;
+        border-image: url('https://cdn.shopify.com/s/files/1/0685/4715/0047/t/11/assets/product-border.svg') 30 round;
+        border-image-width: 12px;
+        border-style: solid;
+        pointer-events: none;
+        z-index: 1;
+      }
+    </style>
+  {% endif %}
 </div>
 
 {% schema %}
@@ -28,6 +44,12 @@
     "groups": ["header", "footer"]
   },
   "settings": [
+    {
+      "type": "checkbox",
+      "id": "show_svg_border",
+      "label": "Show SVG border on product cards",
+      "default": false
+    },
     {
       "type": "range",
       "id": "columns",
