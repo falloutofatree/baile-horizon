@@ -81,13 +81,14 @@
 
   {% if section.settings.show_product_border %}
     <style>
-      #shopify-section-{{ section.id }} .product-card {
+      #shopify-section-{{ section.id }} .card-gallery {
+        padding: 8px;
         position: relative;
       }
-      #shopify-section-{{ section.id }} .product-card::after {
+      #shopify-section-{{ section.id }} .card-gallery::after {
         content: '';
         position: absolute;
-        inset: -4px;
+        inset: 0;
         border-image: url('{{ 'product-border.svg' | asset_url }}') 30 round;
         border-image-width: 12px;
         border-style: solid;
