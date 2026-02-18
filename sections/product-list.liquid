@@ -104,7 +104,7 @@
     <style>
       #shopify-section-{{ section.id }} .section-resource-list__header {
         display: flex;
-        align-items: center;
+        align-items: flex-end;
       }
       #shopify-section-{{ section.id }} .section-resource-list__header > :first-child {
         flex: 1;
@@ -115,6 +115,7 @@
         align-items: center;
         flex-shrink: 0;
         gap: 0;
+        margin-left: 8px;
       }
       @media (max-width: 749px) {
         #shopify-section-{{ section.id }} .product-list-header-arrows {
