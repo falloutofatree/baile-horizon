@@ -102,11 +102,22 @@
 
   {% if section.settings.show_header_arrows %}
     <style>
+      #shopify-section-{{ section.id }} .section-resource-list__header {
+        position: relative;
+      }
       #shopify-section-{{ section.id }} .product-list-header-arrows {
         display: flex;
         align-items: center;
         gap: 0;
-        flex-shrink: 0;
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+      @media (max-width: 749px) {
+        #shopify-section-{{ section.id }} .product-list-header-arrows {
+          display: none;
+        }
       }
       #shopify-section-{{ section.id }} .product-list-header-arrow {
         display: inline-flex;
@@ -130,18 +141,29 @@
       #shopify-section-{{ section.id }} .product-list-header-arrow .svg-wrapper svg {
         width: 100%;
         height: 100%;
-        stroke-width: 1.5;
+        stroke-width: 2;
       }
     </style>
     <script>
       (function() {
         var section = document.getElementById('shopify-section-{{ section.id }}');
+        var slideshow = section.querySelector('slideshow-component');
+
+        if (slideshow) {
+          Object.defineProperty(slideshow, 'previousIndex', {
+            get: function() { return this.current - 1; }
+          });
+          Object.defineProperty(slideshow, 'nextIndex', {
+            get: function() { return this.current + 1; }
+          });
+        }
+
         section.addEventListener('click', function(e) {
           var arrow = e.target.closest('.product-list-header-arrow');
-          if (!arrow) return;
+          if (!arrow || !slideshow) return;
           var dir = arrow.dataset.direction;
-          var realBtn = section.querySelector('slideshow-arrows .slideshow-control--' + dir);
-          if (realBtn) realBtn.click();
+          if (dir === 'previous') slideshow.previous();
+          else if (dir === 'next') slideshow.next();
         });
       })();
     </script>
@@ -175,13 +197,13 @@
     {
       "type": "checkbox",
       "id": "show_product_border",
-      "label": "Show decorative border on product cards",
+      "label": "Decorative border",
       "default": false
     },
     {
       "type": "checkbox",
       "id": "show_header_arrows",
-      "label": "Show navigation arrows in header",
+      "label": "Desktop nav arrows above",
       "default": false
     },
     {
