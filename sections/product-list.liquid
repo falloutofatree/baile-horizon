@@ -22,6 +22,16 @@
 >
   <div class="section-resource-list__header">
     {%- content_for 'block', type: '_product-list-content', id: 'static-header' -%}
+    {% if section.settings.show_header_arrows %}
+      <div class="product-list-header-arrows">
+        <button class="product-list-header-arrow flip-x" data-direction="previous" aria-label="Previous">
+          <span class="svg-wrapper">{{ 'icon-arrow.svg' | inline_asset_content }}</span>
+        </button>
+        <button class="product-list-header-arrow" data-direction="next" aria-label="Next">
+          <span class="svg-wrapper">{{ 'icon-arrow.svg' | inline_asset_content }}</span>
+        </button>
+      </div>
+    {% endif %}
   </div>
 
   {% capture list_items %}
@@ -81,52 +91,60 @@
 
   {% if section.settings.show_product_border %}
     <style>
-      /* Decorative border on product image */
       #shopify-section-{{ section.id }} .card-gallery {
         padding: 28px;
         border-style: solid;
         border-image: url('{{ 'product-border.svg' | asset_url }}') 30 round;
         border-image-width: 24px;
       }
+    </style>
+  {% endif %}
 
-      /* Reposition carousel arrows above the carousel, right-aligned */
-      #shopify-section-{{ section.id }} .section-resource-list {
-        position: relative;
-      }
-      #shopify-section-{{ section.id }} .resource-list__carousel slideshow-component,
-      #shopify-section-{{ section.id }} .resource-list__carousel slideshow-container {
-        position: static;
-      }
-      #shopify-section-{{ section.id }} slideshow-arrows {
-        position: absolute;
-        inset: unset;
-        top: 0;
-        right: 0;
+  {% if section.settings.show_header_arrows %}
+    <style>
+      #shopify-section-{{ section.id }} .product-list-header-arrows {
+        display: flex;
         align-items: center;
-        justify-content: flex-end;
         gap: 0;
-        mix-blend-mode: normal;
-        padding: 0;
+        flex-shrink: 0;
       }
-      #shopify-section-{{ section.id }} slideshow-arrows .slideshow-control {
-        opacity: 1;
-        animation: none;
+      #shopify-section-{{ section.id }} .product-list-header-arrow {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background: none;
+        border: none;
+        cursor: pointer;
         color: var(--color-foreground);
-        min-height: unset;
-        min-width: unset;
         padding: 4px;
       }
-      #shopify-section-{{ section.id }} slideshow-arrows .slideshow-control--next {
-        margin-inline-start: 0;
+      #shopify-section-{{ section.id }} .product-list-header-arrow:disabled {
+        opacity: 0.3;
+        cursor: default;
       }
-      #shopify-section-{{ section.id }} .slideshow-control .svg-wrapper {
+      #shopify-section-{{ section.id }} .product-list-header-arrow .svg-wrapper {
+        display: flex;
         width: 24px;
         height: 24px;
       }
-      #shopify-section-{{ section.id }} .slideshow-control .svg-wrapper svg {
+      #shopify-section-{{ section.id }} .product-list-header-arrow .svg-wrapper svg {
+        width: 100%;
+        height: 100%;
         stroke-width: 1.5;
       }
     </style>
+    <script>
+      (function() {
+        var section = document.getElementById('shopify-section-{{ section.id }}');
+        section.addEventListener('click', function(e) {
+          var arrow = e.target.closest('.product-list-header-arrow');
+          if (!arrow) return;
+          var dir = arrow.dataset.direction;
+          var realBtn = section.querySelector('slideshow-arrows .slideshow-control--' + dir);
+          if (realBtn) realBtn.click();
+        });
+      })();
+    </script>
   {% endif %}
 </div>
 
@@ -158,6 +176,12 @@
       "type": "checkbox",
       "id": "show_product_border",
       "label": "Show decorative border on product cards",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "show_header_arrows",
+      "label": "Show navigation arrows in header",
       "default": false
     },
     {

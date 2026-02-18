@@ -270,6 +270,8 @@
       "name": "Featured collection",
       "settings": {
         "collection": "most-loved",
+        "show_product_border": true,
+        "show_header_arrows": true,
         "layout_type": "carousel",
         "carousel_on_mobile": false,
         "max_products": 8,
