@@ -94,6 +94,12 @@
     display: none;
   }
 
+  /* Theme sets width: auto which shrinks the container — override to full width
+     so margin-left: auto on sort can push it to the right edge */
+  .facets--horizontal {
+    width: 100%;
+  }
+
   .facets--horizontal .sorting-filter {
     margin-left: auto;
   }
