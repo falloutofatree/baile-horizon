@@ -4318,8 +4318,8 @@ slideshow-arrows .slideshow-control.slideshow-control--style-none {
   }
 
   /* Force heading content to stack vertically in narrow sidebar */
-  .section-resource-list--sidebar-heading > .section-resource-list__content .group-block {
-    flex-direction: column;
+  .section-resource-list--sidebar-heading > .section-resource-list__content .layout-panel-flex {
+    --flex-direction: column;
   }
 
   .section-resource-list--sidebar-heading > .resource-list,
