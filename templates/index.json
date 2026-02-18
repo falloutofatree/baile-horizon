@@ -682,6 +682,8 @@
           "children"
         ],
         "layout_type": "carousel",
+        "desktop_sidebar_heading": true,
+        "titles_on_image": true,
         "carousel_on_mobile": false,
         "columns": 5,
         "mobile_columns": "2",
