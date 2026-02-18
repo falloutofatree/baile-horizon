@@ -838,6 +838,7 @@
     "default_logo": "Default logo",
     "desktop_height": "Desktop height",
     "desktop_pagination": "Desktop pagination",
+    "desktop_sidebar_heading": "Desktop heading on the left",
     "direction": "Direction",
     // Button appearance for email signup form
     "display": "Display",
@@ -1119,6 +1120,7 @@
     // Pixel width setting for borders, dividers, or lines
     "thickness": "Thickness",
     "title": "Title",
+    "titles_on_image": "Collection titles on images",
     // Label for range input controlling top spacing/margin
     "top": "Top",
     "top_level_size": "Top level size",
