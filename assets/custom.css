@@ -109,12 +109,6 @@
     max-width: 80%;
   }
 
-  /* Vertically align "More" overflow button with filter pills */
-  .facets__overflow-list::part(more) {
-    display: flex;
-    align-items: center;
-  }
-
   /* Sort button pill styling */
   .sorting-filter__horizontal .facets__summary {
     border: 1px solid rgb(var(--color-foreground-rgb) / 0.2);
