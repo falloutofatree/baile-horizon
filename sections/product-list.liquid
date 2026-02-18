@@ -137,15 +137,32 @@
       }
       #shopify-section-{{ section.id }} .product-list-header-arrow .svg-wrapper {
         display: flex;
-        width: 24px;
-        height: 24px;
+        width: 28px;
+        height: 28px;
       }
       #shopify-section-{{ section.id }} .product-list-header-arrow .svg-wrapper svg {
         width: 100%;
         height: 100%;
-        stroke-width: 2;
+        stroke-width: 2.5;
       }
     </style>
+    <script>
+      (function() {
+        var section = document.getElementById('shopify-section-{{ section.id }}');
+        var slideshow = section.querySelector('slideshow-component');
+
+        section.addEventListener('click', function(e) {
+          var arrow = e.target.closest('.product-list-header-arrow');
+          if (!arrow || !slideshow) return;
+          var dir = arrow.dataset.direction;
+          if (dir === 'previous') slideshow.previous();
+          else if (dir === 'next') slideshow.next();
+        });
+      })();
+    </script>
+  {% endif %}
+
+  {% if section.settings.scroll_by_one %}
     <script>
       (function() {
         var section = document.getElementById('shopify-section-{{ section.id }}');
@@ -159,14 +176,6 @@
             get: function() { return this.current + 1; }
           });
         }
-
-        section.addEventListener('click', function(e) {
-          var arrow = e.target.closest('.product-list-header-arrow');
-          if (!arrow || !slideshow) return;
-          var dir = arrow.dataset.direction;
-          if (dir === 'previous') slideshow.previous();
-          else if (dir === 'next') slideshow.next();
-        });
       })();
     </script>
   {% endif %}
@@ -192,11 +201,6 @@
   },
   "settings": [
     {
-      "type": "collection",
-      "id": "collection",
-      "label": "t:settings.collection"
-    },
-    {
       "type": "checkbox",
       "id": "show_product_border",
       "label": "Decorative border",
@@ -207,6 +211,17 @@
       "id": "show_header_arrows",
       "label": "Desktop nav arrows above",
       "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "scroll_by_one",
+      "label": "Scroll one slide at a time",
+      "default": false
+    },
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "t:settings.collection"
     },
     {
       "type": "select",

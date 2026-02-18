@@ -272,6 +272,7 @@
         "collection": "most-loved",
         "show_product_border": true,
         "show_header_arrows": true,
+        "scroll_by_one": true,
         "layout_type": "carousel",
         "carousel_on_mobile": false,
         "max_products": 8,
