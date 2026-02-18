@@ -4317,6 +4317,11 @@ slideshow-arrows .slideshow-control.slideshow-control--style-none {
     padding-block-start: var(--gap);
   }
 
+  /* Force heading content to stack vertically in narrow sidebar */
+  .section-resource-list--sidebar-heading > .section-resource-list__content .group-block {
+    flex-direction: column;
+  }
+
   .section-resource-list--sidebar-heading > .resource-list,
   .section-resource-list--sidebar-heading > .resource-list.force-full-width {
     grid-column: 3;
