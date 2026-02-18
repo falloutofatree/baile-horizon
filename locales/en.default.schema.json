@@ -1120,7 +1120,6 @@
     // Pixel width setting for borders, dividers, or lines
     "thickness": "Thickness",
     "title": "Title",
-    "titles_on_image": "Collection titles on images",
     // Label for range input controlling top spacing/margin
     "top": "Top",
     "top_level_size": "Top level size",
