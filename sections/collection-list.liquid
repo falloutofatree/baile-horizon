@@ -160,6 +160,13 @@
       "visible_if": "{{ section.settings.layout_type != 'carousel' }}"
     },
     {
+      "type": "checkbox",
+      "id": "vertical_on_mobile",
+      "label": "t:settings.vertical_on_mobile",
+      "default": false,
+      "visible_if": "{{ section.settings.layout_type == 'carousel' }}"
+    },
+    {
       "type": "range",
       "id": "columns",
       "label": "t:settings.columns",
@@ -184,7 +191,7 @@
         }
       ],
       "default": "2",
-      "visible_if": "{{ section.settings.layout_type == 'grid' and section.settings.carousel_on_mobile == false }}"
+      "visible_if": "{{ section.settings.layout_type == 'grid' and section.settings.carousel_on_mobile == false or section.settings.layout_type == 'carousel' and section.settings.vertical_on_mobile == true }}"
     },
     {
       "type": "select",

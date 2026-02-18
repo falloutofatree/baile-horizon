@@ -104,6 +104,9 @@
     {% if settings.carousel_on_mobile and settings.layout_type != 'carousel' %}
       hidden--mobile
     {% endif %}
+    {% if settings.vertical_on_mobile and settings.layout_type == 'carousel' %}
+      hidden--mobile
+    {% endif %}
     {{ resource_list_classes }}
   "
   style="{{ resource_list_styles }}"
@@ -172,5 +175,26 @@
       settings: settings,
       slide_width_max: slide_width_max
     %}
+  </div>
+{% endif %}
+
+{% comment %} Mobile grid for carousel layouts with vertical_on_mobile {% endcomment %}
+{% if settings.layout_type == 'carousel' and settings.vertical_on_mobile %}
+  {% assign mobile_grid_columns = settings.mobile_columns | default: 2 %}
+  <div
+    class="
+      resource-list
+      hidden--desktop
+      resource-list--grid
+    "
+    style="
+      --resource-list-column-gap-desktop: {{ settings.columns_gap | default: 16 }}px;
+      --resource-list-row-gap-desktop: {{ settings.columns_gap | default: 16 }}px;
+      --resource-list-columns: repeat({{ mobile_grid_columns }}, 1fr);
+      --resource-list-columns-mobile: repeat({{ mobile_grid_columns }}, 1fr);
+      --column-count-mobile: {{ mobile_grid_columns }};
+    "
+  >
+    {{ list_items }}
   </div>
 {% endif %}
