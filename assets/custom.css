@@ -37,3 +37,44 @@
   text-decoration: underline;
   text-underline-offset: 8px;
 }
+
+/* Collection filter & sort - pill button styling */
+@media screen and (min-width: 750px) {
+  .facets--horizontal .facets__summary {
+    border: 1px solid rgb(var(--color-foreground-rgb) / 0.2);
+    border-radius: 100px;
+    padding: 8px 16px;
+    gap: 8px;
+    transition: border-color var(--animation-speed) var(--animation-easing);
+  }
+
+  .facets--horizontal .facets__summary:hover {
+    border-color: rgb(var(--color-foreground-rgb) / 0.5);
+  }
+
+  .facets--horizontal .facets__panel[open] > .facets__summary {
+    border-color: rgb(var(--color-foreground-rgb) / 0.5);
+  }
+
+  /* Hide product count in horizontal filter bar */
+  .facets--horizontal .products-count-wrapper {
+    display: none;
+  }
+
+  /* Sort button pill styling */
+  .sorting-filter__horizontal .facets__summary {
+    border: 1px solid rgb(var(--color-foreground-rgb) / 0.2);
+    border-radius: 100px;
+    padding: 8px 16px;
+    gap: 8px;
+    transition: border-color var(--animation-speed) var(--animation-easing);
+  }
+
+  .sorting-filter__horizontal .facets__summary:hover {
+    border-color: rgb(var(--color-foreground-rgb) / 0.5);
+  }
+
+  .sorting-filter__horizontal details[open] > .facets__summary {
+    border-color: rgb(var(--color-foreground-rgb) / 0.5);
+  }
+}
