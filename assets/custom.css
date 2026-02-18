@@ -32,3 +32,9 @@
 .resource-list--grid {
   align-items: baseline;
 }
+
+/* Text links get underlined */
+.section a.link {
+  text-decoration: underline;
+  text-underline-offset: 8px;
+}
