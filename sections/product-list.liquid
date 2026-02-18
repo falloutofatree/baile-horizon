@@ -81,11 +81,50 @@
 
   {% if section.settings.show_product_border %}
     <style>
+      /* Decorative border on product image */
       #shopify-section-{{ section.id }} .card-gallery {
-        padding: 16px;
+        padding: 28px;
         border-style: solid;
         border-image: url('{{ 'product-border.svg' | asset_url }}') 30 round;
-        border-image-width: 12px;
+        border-image-width: 24px;
+      }
+
+      /* Reposition carousel arrows above the carousel, right-aligned */
+      #shopify-section-{{ section.id }} .section-resource-list {
+        position: relative;
+      }
+      #shopify-section-{{ section.id }} .resource-list__carousel slideshow-component,
+      #shopify-section-{{ section.id }} .resource-list__carousel slideshow-container {
+        position: static;
+      }
+      #shopify-section-{{ section.id }} slideshow-arrows {
+        position: absolute;
+        inset: unset;
+        top: 0;
+        right: 0;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 0;
+        mix-blend-mode: normal;
+        padding: 0;
+      }
+      #shopify-section-{{ section.id }} slideshow-arrows .slideshow-control {
+        opacity: 1;
+        animation: none;
+        color: var(--color-foreground);
+        min-height: unset;
+        min-width: unset;
+        padding: 4px;
+      }
+      #shopify-section-{{ section.id }} slideshow-arrows .slideshow-control--next {
+        margin-inline-start: 0;
+      }
+      #shopify-section-{{ section.id }} .slideshow-control .svg-wrapper {
+        width: 24px;
+        height: 24px;
+      }
+      #shopify-section-{{ section.id }} .slideshow-control .svg-wrapper svg {
+        stroke-width: 1.5;
       }
     </style>
   {% endif %}
