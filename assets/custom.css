@@ -89,9 +89,24 @@
     border-color: rgb(var(--color-foreground-rgb) / 0.5);
   }
 
-  /* Hide product count in horizontal filter bar */
+  /* Hide product count and push sort to the right */
   .facets--horizontal .products-count-wrapper {
     display: none;
+  }
+
+  .facets--horizontal .sorting-filter {
+    margin-left: auto;
+  }
+
+  /* Allow filters to use up to 80% of horizontal space */
+  .facets--horizontal .facets__filters-wrapper {
+    max-width: 80%;
+  }
+
+  /* Vertically align "More" overflow button with filter pills */
+  .facets__overflow-list::part(more) {
+    display: flex;
+    align-items: center;
   }
 
   /* Sort button pill styling */
