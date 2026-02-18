@@ -103,16 +103,18 @@
   {% if section.settings.show_header_arrows %}
     <style>
       #shopify-section-{{ section.id }} .section-resource-list__header {
-        position: relative;
+        display: flex;
+        align-items: center;
+      }
+      #shopify-section-{{ section.id }} .section-resource-list__header > :first-child {
+        flex: 1;
+        min-width: 0;
       }
       #shopify-section-{{ section.id }} .product-list-header-arrows {
         display: flex;
         align-items: center;
+        flex-shrink: 0;
         gap: 0;
-        position: absolute;
-        right: 0;
-        top: 50%;
-        transform: translateY(-50%);
       }
       @media (max-width: 749px) {
         #shopify-section-{{ section.id }} .product-list-header-arrows {
