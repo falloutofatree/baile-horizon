@@ -4305,15 +4305,16 @@ slideshow-arrows .slideshow-control.slideshow-control--style-none {
 @media screen and (min-width: 750px) {
   .section-resource-list--sidebar-heading {
     grid-template-columns: var(--util-page-margin-offset) auto 1fr;
-    align-items: center;
+    align-items: start;
   }
 
   .section-resource-list--sidebar-heading > .section-resource-list__content {
     grid-column: 2;
     grid-row: 1;
     width: auto;
-    max-width: 300px;
+    max-width: clamp(180px, 18vw, 320px);
     padding-inline-end: var(--gap);
+    padding-block-start: var(--gap);
   }
 
   .section-resource-list--sidebar-heading > .resource-list,
@@ -4330,6 +4331,17 @@ slideshow-arrows .slideshow-control.slideshow-control--style-none {
 
   .section-resource-list--sidebar-heading .resource-list__carousel slideshow-arrows {
     padding-inline-start: 0;
+  }
+
+  /* Lower the desktop slide-width threshold so narrower carousel still uses column-based sizing */
+  @container resource-list-carousel (min-width: 500px) {
+    .section-resource-list--sidebar-heading .resource-list__slide {
+      --section-slide-width: calc(
+        (100% - (var(--resource-list-column-gap) * (var(--column-count) - 1)) - var(--peek-next-slide-size)) /
+          var(--column-count)
+      );
+      --slide-width: var(--section-slide-width);
+    }
   }
 }
 

@@ -594,10 +594,26 @@
                 "padding-inline-end": 0
               },
               "blocks": {}
+            },
+            "button_sidebar": {
+              "type": "button",
+              "name": "t:names.button",
+              "settings": {
+                "label": "Shop Now",
+                "link": "shopify://collections/all",
+                "open_in_new_tab": false,
+                "style_class": "link",
+                "width": "fit-content",
+                "custom_width": 100,
+                "width_mobile": "fit-content",
+                "custom_width_mobile": 100
+              },
+              "blocks": {}
             }
           },
           "block_order": [
-            "text_DQbQKq"
+            "text_DQbQKq",
+            "button_sidebar"
           ]
         },
         "static-collection-card": {
