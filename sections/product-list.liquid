@@ -22,6 +22,16 @@
 >
   <div class="section-resource-list__header">
     {%- content_for 'block', type: '_product-list-content', id: 'static-header' -%}
+    {% if section.settings.show_header_arrows %}
+      <div class="product-list-header-arrows">
+        <button class="product-list-header-arrow flip-x" data-direction="previous" aria-label="Previous">
+          <span class="svg-wrapper">{{ 'icon-arrow.svg' | inline_asset_content }}</span>
+        </button>
+        <button class="product-list-header-arrow" data-direction="next" aria-label="Next">
+          <span class="svg-wrapper">{{ 'icon-arrow.svg' | inline_asset_content }}</span>
+        </button>
+      </div>
+    {% endif %}
   </div>
 
   {% capture list_items %}
@@ -78,6 +88,98 @@
   >
     {%- content_for 'blocks' -%}
   </div>
+
+  {% if section.settings.show_product_border %}
+    <style>
+      #shopify-section-{{ section.id }} .card-gallery {
+        padding: 28px;
+        border-style: solid;
+        border-image: url('{{ 'product-border.svg' | asset_url }}') 30 round;
+        border-image-width: 24px;
+      }
+    </style>
+  {% endif %}
+
+  {% if section.settings.show_header_arrows %}
+    <style>
+      #shopify-section-{{ section.id }} .section-resource-list__header {
+        display: flex;
+        align-items: flex-end;
+      }
+      #shopify-section-{{ section.id }} .section-resource-list__header > :first-child {
+        flex: 1;
+        min-width: 0;
+      }
+      #shopify-section-{{ section.id }} .product-list-header-arrows {
+        display: flex;
+        align-items: center;
+        flex-shrink: 0;
+        gap: 0;
+        margin-left: 8px;
+      }
+      @media (max-width: 749px) {
+        #shopify-section-{{ section.id }} .product-list-header-arrows {
+          display: none;
+        }
+      }
+      #shopify-section-{{ section.id }} .product-list-header-arrow {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background: none;
+        border: none;
+        cursor: pointer;
+        color: var(--color-foreground);
+        padding: 4px;
+      }
+      #shopify-section-{{ section.id }} .product-list-header-arrow:disabled {
+        opacity: 0.3;
+        cursor: default;
+      }
+      #shopify-section-{{ section.id }} .product-list-header-arrow .svg-wrapper {
+        display: flex;
+        width: 28px;
+        height: 28px;
+      }
+      #shopify-section-{{ section.id }} .product-list-header-arrow .svg-wrapper svg {
+        width: 100%;
+        height: 100%;
+        stroke-width: 2.5;
+      }
+    </style>
+    <script>
+      (function() {
+        var section = document.getElementById('shopify-section-{{ section.id }}');
+        var slideshow = section.querySelector('slideshow-component');
+
+        section.addEventListener('click', function(e) {
+          var arrow = e.target.closest('.product-list-header-arrow');
+          if (!arrow || !slideshow) return;
+          var dir = arrow.dataset.direction;
+          if (dir === 'previous') slideshow.previous();
+          else if (dir === 'next') slideshow.next();
+        });
+      })();
+    </script>
+  {% endif %}
+
+  {% if section.settings.scroll_by_one %}
+    <script>
+      (function() {
+        var section = document.getElementById('shopify-section-{{ section.id }}');
+        var slideshow = section.querySelector('slideshow-component');
+
+        if (slideshow) {
+          Object.defineProperty(slideshow, 'previousIndex', {
+            get: function() { return this.current - 1; }
+          });
+          Object.defineProperty(slideshow, 'nextIndex', {
+            get: function() { return this.current + 1; }
+          });
+        }
+      })();
+    </script>
+  {% endif %}
 </div>
 
 {% schema %}
@@ -99,6 +201,24 @@
     "groups": ["header", "footer"]
   },
   "settings": [
+    {
+      "type": "checkbox",
+      "id": "show_product_border",
+      "label": "Decorative border",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "show_header_arrows",
+      "label": "Desktop nav arrows above",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "scroll_by_one",
+      "label": "Scroll one slide at a time",
+      "default": false
+    },
     {
       "type": "collection",
       "id": "collection",
