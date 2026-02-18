@@ -38,3 +38,35 @@
   text-decoration: underline;
   text-underline-offset: 8px;
 }
+
+/* Sidebar heading layout: heading/link on the left, carousel on the right (desktop only) */
+@media screen and (min-width: 750px) {
+  .section-resource-list--sidebar-heading {
+    grid-template-columns: var(--util-page-margin-offset) auto 1fr;
+    align-items: center;
+  }
+
+  .section-resource-list--sidebar-heading > .section-resource-list__content {
+    grid-column: 2;
+    grid-row: 1;
+    width: auto;
+    max-width: 300px;
+    padding-inline-end: var(--gap);
+  }
+
+  .section-resource-list--sidebar-heading > .resource-list,
+  .section-resource-list--sidebar-heading > .resource-list.force-full-width {
+    grid-column: 3;
+    grid-row: 1;
+  }
+
+  /* Remove start gutter since sidebar fills that space */
+  .section-resource-list--sidebar-heading slideshow-slides[gutters] {
+    padding-inline-start: 0;
+    scroll-padding-inline-start: 0;
+  }
+
+  .section-resource-list--sidebar-heading .resource-list__carousel slideshow-arrows {
+    padding-inline-start: 0;
+  }
+}
