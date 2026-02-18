@@ -4317,9 +4317,11 @@ slideshow-arrows .slideshow-control.slideshow-control--style-none {
     padding-block-start: var(--gap);
   }
 
-  /* Force heading content to stack vertically in narrow sidebar */
+  /* Force heading content to stack vertically in narrow sidebar (flex-direction directly, since --flex-direction is set inline) */
   .section-resource-list--sidebar-heading > .section-resource-list__content .layout-panel-flex {
-    --flex-direction: column;
+    flex-direction: column;
+    align-items: var(--horizontal-alignment);
+    justify-content: var(--vertical-alignment);
   }
 
   .section-resource-list--sidebar-heading > .resource-list,
