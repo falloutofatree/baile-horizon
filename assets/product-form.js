@@ -443,7 +443,7 @@ class ProductFormComponent extends Component {
         }
       })
       .catch((error) => {
-        console.error(error);
+        console.error('Add to cart request failed:', error);
       })
       .finally(() => {
         cartPerformance.measureFromEvent('add:user-action', event);
