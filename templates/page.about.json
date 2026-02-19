@@ -48,6 +48,7 @@
         "heading",
         "page-content"
       ],
+      "disabled": true,
       "settings": {
         "content_direction": "column",
         "gap": 32,
@@ -59,10 +60,24 @@
     "hero_fKcdBR": {
       "type": "hero",
       "blocks": {
+        "spacer_hhUQ8n": {
+          "type": "spacer",
+          "name": "t:names.spacer",
+          "settings": {
+            "size": "pixel",
+            "percent_size": 100,
+            "pixel_size": 52,
+            "custom_mobile_size": false,
+            "size_mobile": "percent",
+            "percent_size_mobile": 100,
+            "pixel_size_mobile": 120
+          },
+          "blocks": {}
+        },
         "text_FfwCxR": {
           "type": "text",
           "settings": {
-            "text": "<h1>New arrivals</h1>",
+            "text": "<h1>CURATED WITH CONSCIOUS</h1>",
             "width": "fit-content",
             "max_width": "narrow",
             "alignment": "left",
@@ -84,31 +99,6 @@
           },
           "blocks": {}
         },
-        "text_hiYw9y": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Made with care and unconditionally loved by our customers.</p>",
-            "width": "fit-content",
-            "max_width": "narrow",
-            "alignment": "left",
-            "type_preset": "rte",
-            "font": "var(--font-body--family)",
-            "font_size": "1rem",
-            "line_height": "normal",
-            "letter_spacing": "normal",
-            "case": "none",
-            "wrap": "pretty",
-            "color": "var(--color-foreground)",
-            "background": false,
-            "background_color": "#00000026",
-            "corner_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 32,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {}
-        },
         "button_wiahFP": {
           "type": "button",
           "name": "t:names.button",
@@ -116,24 +106,40 @@
             "label": "Shop now",
             "link": "shopify://collections/all",
             "open_in_new_tab": false,
-            "style_class": "button",
+            "style_class": "link",
             "width": "fit-content",
             "custom_width": 100,
             "width_mobile": "fit-content",
             "custom_width_mobile": 100
           },
           "blocks": {}
+        },
+        "spacer_Pr6MEX": {
+          "type": "spacer",
+          "name": "t:names.spacer",
+          "settings": {
+            "size": "pixel",
+            "percent_size": 100,
+            "pixel_size": 52,
+            "custom_mobile_size": false,
+            "size_mobile": "percent",
+            "percent_size_mobile": 100,
+            "pixel_size_mobile": 120
+          },
+          "blocks": {}
         }
       },
       "block_order": [
+        "spacer_hhUQ8n",
         "text_FfwCxR",
-        "text_hiYw9y",
-        "button_wiahFP"
+        "button_wiahFP",
+        "spacer_Pr6MEX"
       ],
       "name": "t:names.hero",
       "settings": {
-        "toggle_decorative_border": true,
+        "toggle_decorative_border": false,
         "media_type_1": "image",
+        "image_1": "shopify://shop_images/Untitled_design_56.png",
         "media_type_2": "image",
         "stack_media_on_mobile": false,
         "custom_mobile_media": false,
@@ -148,19 +154,19 @@
         "align_baseline": false,
         "horizontal_alignment_flex_direction_column": "center",
         "vertical_alignment_flex_direction_column": "center",
-        "gap": 16,
+        "gap": 24,
         "section_width": "page-width",
-        "section_height": "large",
+        "section_height": "small",
         "section_height_custom": 50,
         "color_scheme": "scheme-5",
         "toggle_overlay": true,
-        "overlay_color": "#00000026",
-        "overlay_style": "gradient",
+        "overlay_color": "#00000030",
+        "overlay_style": "solid",
         "gradient_direction": "to top",
         "blurred_reflection": false,
         "reflection_opacity": 75,
-        "padding-block-start": 40,
-        "padding-block-end": 40
+        "padding-block-start": 100,
+        "padding-block-end": 100
       }
     },
     "section_YDPHwP": {
@@ -169,6 +175,7 @@
         "image_AB7dPg": {
           "type": "image",
           "settings": {
+            "image": "shopify://shop_images/nikki_kylie_shop_baile.png",
             "link": "",
             "image_ratio": "square",
             "width": "fill",
@@ -197,7 +204,7 @@
             "align_baseline": false,
             "horizontal_alignment_flex_direction_column": "flex-start",
             "vertical_alignment_flex_direction_column": "center",
-            "gap": 12,
+            "gap": 24,
             "width": "custom",
             "custom_width": 100,
             "width_mobile": "fill",
@@ -230,11 +237,11 @@
               "type": "text",
               "name": "t:names.heading",
               "settings": {
-                "text": "<h2>Our signature product</h2>",
+                "text": "<h4>Meet Baile</h4>",
                 "width": "fit-content",
                 "max_width": "normal",
                 "alignment": "left",
-                "type_preset": "h3",
+                "type_preset": "h4",
                 "font": "var(--font-body--family)",
                 "font_size": "1rem",
                 "line_height": "normal",
@@ -255,9 +262,9 @@
             "text_DpG9dH": {
               "type": "text",
               "settings": {
-                "text": "<p>Made with care and unconditionally loved by our customers, this signature bestseller exceeds all expectations.</p>",
+                "text": "<p>Kylie Gaughan and Nikki Bostwick, founders of Baile, share a deep longing for the homestead life. As two individuals dreaming of a future homestead, they recognize that those years are still on the horizon. In the meantime, they've chosen to infuse elements of the countryside into their daily lives.</p><p>Their focus centers on embracing materials and methods traditionally used by homesteaders. They prioritize the versatility of cotton, wool, and natural leather in crafting clothing, bedding, and kitchen/home textiles. Wood becomes a staple in their building materials, from furniture to toys. Stoneware finds a place in their homes, enhancing everyday chores such as gardening, laundry, and cooking with inspiration and beauty.</p><p>By embracing this way of life and kindling the desire to be self-sustaining, irrespective of your current location, you contribute to your own well-being and the well-being of the earth. Kylie and Nikki are dedicated to sharing the essence of the homestead life, bringing a touch of simplicity and sustainability to your everyday experience.</p>",
                 "width": "fit-content",
-                "max_width": "narrow",
+                "max_width": "normal",
                 "alignment": "left",
                 "type_preset": "rte",
                 "font": "var(--font-body--family)",
@@ -312,11 +319,11 @@
         "align_baseline": false,
         "horizontal_alignment_flex_direction_column": "flex-start",
         "vertical_alignment_flex_direction_column": "center",
-        "gap": 32,
+        "gap": 50,
         "section_width": "page-width",
         "section_height": "",
         "section_height_custom": 50,
-        "color_scheme": "",
+        "color_scheme": "scheme-2",
         "background_media": "none",
         "video_position": "cover",
         "background_image_position": "cover",
@@ -328,125 +335,337 @@
         "overlay_color": "#00000026",
         "overlay_style": "solid",
         "gradient_direction": "to top",
-        "padding-block-start": 40,
-        "padding-block-end": 40
+        "padding-block-start": 64,
+        "padding-block-end": 64
       }
     },
-    "hero_pYcP3K": {
-      "type": "hero",
+    "section_wbgqWw": {
+      "type": "section",
       "blocks": {
-        "text_GtKfYE": {
-          "type": "text",
+        "group_w8tHjF": {
+          "type": "group",
           "settings": {
-            "text": "<h1>New arrivals</h1>",
-            "width": "fit-content",
-            "max_width": "narrow",
-            "alignment": "left",
-            "type_preset": "h1",
-            "font": "var(--font-body--family)",
-            "font_size": "1rem",
-            "line_height": "normal",
-            "letter_spacing": "normal",
-            "case": "none",
-            "wrap": "pretty",
-            "color": "var(--color-foreground)",
-            "background": false,
-            "background_color": "#00000026",
-            "corner_radius": 0,
+            "content_direction": "column",
+            "vertical_on_mobile": true,
+            "horizontal_alignment": "flex-start",
+            "vertical_alignment": "center",
+            "align_baseline": false,
+            "horizontal_alignment_flex_direction_column": "flex-start",
+            "vertical_alignment_flex_direction_column": "space-between",
+            "gap": 12,
+            "width": "custom",
+            "custom_width": 100,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100,
+            "height": "fill",
+            "custom_height": 100,
+            "inherit_color_scheme": true,
+            "color_scheme": "",
+            "background_media": "none",
+            "video_position": "cover",
+            "background_image_position": "cover",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 0,
+            "toggle_overlay": false,
+            "overlay_color": "#00000026",
+            "overlay_style": "solid",
+            "gradient_direction": "to top",
+            "link": "",
+            "open_in_new_tab": false,
+            "placeholder": "",
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "image_JanVhX": {
+              "type": "image",
+              "name": "t:names.image",
+              "settings": {
+                "image": "shopify://shop_images/Baile_38.png",
+                "link": "",
+                "image_ratio": "portrait",
+                "width": "custom",
+                "custom_width": 60,
+                "width_mobile": "custom",
+                "custom_width_mobile": 0,
+                "height": "fit",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "image_4gAEJe": {
+              "type": "image",
+              "name": "t:names.image",
+              "settings": {
+                "image": "shopify://shop_images/Kylie_Gaughan_and_Nikki_Bostwick.png",
+                "link": "",
+                "image_ratio": "portrait",
+                "width": "custom",
+                "custom_width": 0,
+                "width_mobile": "custom",
+                "custom_width_mobile": 100,
+                "height": "fit",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "text_cJE4rt": {
+              "type": "text",
+              "settings": {
+                "text": "<p>Baile offers a way to reconnect, to slow down, gather, and bring meaning back to the materials of daily life. It's is an invitation to live more simply, to create with purpose, to find beauty in the everyday.</p>",
+                "width": "fit-content",
+                "max_width": "normal",
+                "alignment": "left",
+                "type_preset": "rte",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "image_JanVhX",
+            "image_4gAEJe",
+            "text_cJE4rt"
+          ]
+        },
+        "image_wdqwiy": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Kylie_Gaughan_and_Nikki_Bostwick.png",
+            "link": "",
+            "image_ratio": "portrait",
+            "width": "fill",
+            "custom_width": 100,
+            "width_mobile": "custom",
+            "custom_width_mobile": 0,
+            "height": "fit",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 0,
             "padding-block-start": 0,
             "padding-block-end": 0,
             "padding-inline-start": 0,
             "padding-inline-end": 0
           },
           "blocks": {}
-        },
-        "text_KQaVxC": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Made with care and unconditionally loved by our customers.</p>",
-            "width": "fit-content",
-            "max_width": "narrow",
-            "alignment": "left",
-            "type_preset": "rte",
-            "font": "var(--font-body--family)",
-            "font_size": "1rem",
-            "line_height": "normal",
-            "letter_spacing": "normal",
-            "case": "none",
-            "wrap": "pretty",
-            "color": "var(--color-foreground)",
-            "background": false,
-            "background_color": "#00000026",
-            "corner_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 32,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {}
-        },
-        "button_tjpjcc": {
-          "type": "button",
-          "name": "t:names.button",
-          "settings": {
-            "label": "Shop now",
-            "link": "shopify://collections/all",
-            "open_in_new_tab": false,
-            "style_class": "button",
-            "width": "fit-content",
-            "custom_width": 100,
-            "width_mobile": "fit-content",
-            "custom_width_mobile": 100
-          },
-          "blocks": {}
         }
       },
       "block_order": [
-        "text_GtKfYE",
-        "text_KQaVxC",
-        "button_tjpjcc"
+        "group_w8tHjF",
+        "image_wdqwiy"
       ],
-      "name": "t:names.hero",
+      "name": "t:names.image_with_text",
       "settings": {
-        "toggle_decorative_border": true,
-        "media_type_1": "image",
-        "media_type_2": "image",
-        "stack_media_on_mobile": false,
-        "custom_mobile_media": false,
-        "media_type_1_mobile": "image",
-        "media_type_2_mobile": "image",
-        "link": "",
-        "open_in_new_tab": false,
+        "content_direction": "row",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "flex-start",
+        "vertical_alignment": "center",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "flex-start",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 32,
+        "section_width": "page-width",
+        "section_height": "",
+        "section_height_custom": 50,
+        "color_scheme": "scheme-2",
+        "background_media": "none",
+        "video_position": "cover",
+        "background_image_position": "cover",
+        "border": "none",
+        "border_width": 1,
+        "border_opacity": 100,
+        "border_radius": 0,
+        "toggle_overlay": false,
+        "overlay_color": "#00000026",
+        "overlay_style": "solid",
+        "gradient_direction": "to top",
+        "padding-block-start": 64,
+        "padding-block-end": 64
+      }
+    },
+    "section_Gxnt4J": {
+      "type": "section",
+      "blocks": {
+        "group_WXbHck": {
+          "type": "group",
+          "name": "t:names.group",
+          "settings": {
+            "content_direction": "column",
+            "vertical_on_mobile": true,
+            "horizontal_alignment": "flex-start",
+            "vertical_alignment": "center",
+            "align_baseline": false,
+            "horizontal_alignment_flex_direction_column": "center",
+            "vertical_alignment_flex_direction_column": "center",
+            "gap": 24,
+            "width": "fill",
+            "custom_width": 100,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100,
+            "height": "fit",
+            "custom_height": 100,
+            "inherit_color_scheme": true,
+            "color_scheme": "",
+            "background_media": "image",
+            "video_position": "cover",
+            "background_image": "shopify://shop_images/IMG_1784.jpg",
+            "background_image_position": "cover",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 0,
+            "toggle_overlay": true,
+            "overlay_color": "#00000038",
+            "overlay_style": "solid",
+            "gradient_direction": "to top",
+            "link": "",
+            "open_in_new_tab": false,
+            "placeholder": "",
+            "padding-block-start": 100,
+            "padding-block-end": 100,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "spacer_KJFeRb": {
+              "type": "spacer",
+              "name": "t:names.spacer",
+              "settings": {
+                "size": "pixel",
+                "percent_size": 100,
+                "pixel_size": 24,
+                "custom_mobile_size": false,
+                "size_mobile": "percent",
+                "percent_size_mobile": 100,
+                "pixel_size_mobile": 120
+              },
+              "blocks": {}
+            },
+            "text_A9XxAL": {
+              "type": "text",
+              "settings": {
+                "text": "<h4>Our goods are hand-picked by discerning eyes. </h4><h4>Discover the standards we swear by.</h4>",
+                "width": "fit-content",
+                "max_width": "normal",
+                "alignment": "left",
+                "type_preset": "h5",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "button_EhVC7e": {
+              "type": "button",
+              "name": "t:names.button",
+              "settings": {
+                "label": "Shop now",
+                "link": "shopify://collections/all",
+                "open_in_new_tab": false,
+                "style_class": "button",
+                "width": "fit-content",
+                "custom_width": 100,
+                "width_mobile": "fit-content",
+                "custom_width_mobile": 100
+              },
+              "blocks": {}
+            },
+            "spacer_6UNqqC": {
+              "type": "spacer",
+              "name": "t:names.spacer",
+              "settings": {
+                "size": "pixel",
+                "percent_size": 100,
+                "pixel_size": 24,
+                "custom_mobile_size": false,
+                "size_mobile": "percent",
+                "percent_size_mobile": 100,
+                "pixel_size_mobile": 120
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "spacer_KJFeRb",
+            "text_A9XxAL",
+            "button_EhVC7e",
+            "spacer_6UNqqC"
+          ]
+        }
+      },
+      "block_order": [
+        "group_WXbHck"
+      ],
+      "name": "t:names.custom_section",
+      "settings": {
         "content_direction": "column",
         "vertical_on_mobile": true,
         "horizontal_alignment": "flex-start",
         "vertical_alignment": "center",
         "align_baseline": false,
-        "horizontal_alignment_flex_direction_column": "center",
+        "horizontal_alignment_flex_direction_column": "flex-start",
         "vertical_alignment_flex_direction_column": "center",
-        "gap": 16,
-        "section_width": "page-width",
-        "section_height": "large",
+        "gap": 12,
+        "section_width": "full-width",
+        "section_height": "",
         "section_height_custom": 50,
-        "color_scheme": "scheme-5",
-        "toggle_overlay": true,
+        "color_scheme": "scheme-8",
+        "background_media": "none",
+        "video_position": "cover",
+        "background_image_position": "cover",
+        "border": "none",
+        "border_width": 1,
+        "border_opacity": 100,
+        "border_radius": 0,
+        "toggle_overlay": false,
         "overlay_color": "#00000026",
-        "overlay_style": "gradient",
+        "overlay_style": "solid",
         "gradient_direction": "to top",
-        "blurred_reflection": false,
-        "reflection_opacity": 75,
-        "padding-block-start": 40,
-        "padding-block-end": 40
-      }
-    },
-    "masonry_grid_1": {
-      "type": "custom-liquid",
-      "settings": {
-        "custom_liquid": "<style>\n.masonry-grid{columns:3;column-gap:12px;padding:0 20px}\n.masonry-grid .masonry-item{break-inside:avoid;margin-bottom:12px;border-radius:8px;overflow:hidden}\n.masonry-grid .masonry-item img{width:100%;display:block;border-radius:8px}\n.masonry-grid .masonry-item:nth-child(1) img,.masonry-grid .masonry-item:nth-child(4) img{aspect-ratio:3/4;object-fit:cover}\n.masonry-grid .masonry-item:nth-child(2) img,.masonry-grid .masonry-item:nth-child(5) img{aspect-ratio:1/1;object-fit:cover}\n.masonry-grid .masonry-item:nth-child(3) img,.masonry-grid .masonry-item:nth-child(6) img{aspect-ratio:4/3;object-fit:cover}\n@media(max-width:749px){.masonry-grid{columns:2}}\n</style>\n<div class=\"masonry-grid\">\n  <div class=\"masonry-item\">{{ 'lifestyle-1' | placeholder_svg_tag }}</div>\n  <div class=\"masonry-item\">{{ 'collection-1' | placeholder_svg_tag }}</div>\n  <div class=\"masonry-item\">{{ 'lifestyle-2' | placeholder_svg_tag }}</div>\n  <div class=\"masonry-item\">{{ 'collection-2' | placeholder_svg_tag }}</div>\n  <div class=\"masonry-item\">{{ 'product-1' | placeholder_svg_tag }}</div>\n  <div class=\"masonry-item\">{{ 'collection-3' | placeholder_svg_tag }}</div>\n</div>",
-        "color_scheme": "scheme-1",
-        "section_width": "page-width",
-        "padding-block-start": 48,
-        "padding-block-end": 48
+        "padding-block-start": 0,
+        "padding-block-end": 0
       }
     }
   },
@@ -454,7 +673,7 @@
     "main",
     "hero_fKcdBR",
     "section_YDPHwP",
-    "masonry_grid_1",
-    "hero_pYcP3K"
+    "section_wbgqWw",
+    "section_Gxnt4J"
   ]
 }

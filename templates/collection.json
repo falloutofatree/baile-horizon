@@ -22,7 +22,7 @@
             "alignment": "center",
             "type_preset": "custom",
             "font": "var(--font-heading--family)",
-            "font_size": "2.5rem",
+            "font_size": "2rem",
             "line_height": "normal",
             "letter_spacing": "normal",
             "case": "uppercase",
@@ -214,7 +214,7 @@
       },
       "settings": {
         "layout_type": "grid",
-        "product_card_size": "medium",
+        "product_card_size": "large",
         "mobile_product_card_size": "small",
         "enable_infinite_scroll": true,
         "products_per_page": 24,
