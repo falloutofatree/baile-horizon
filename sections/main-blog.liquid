@@ -21,17 +21,36 @@
   >
     {% content_for 'blocks' %}
 
-    {% paginate blog.articles by 3 %}
+    {% liquid
+      assign posts_per_page = section.settings.posts_per_page
+      assign show_hero = section.settings.show_hero_post
+      assign columns = section.settings.columns | plus: 0
+      assign col_span = 6 | divided_by: columns
+    %}
+
+    {% paginate blog.articles by posts_per_page %}
       <div
         ref="grid"
         class="blog-posts-container"
         data-last-page="{{ paginate.pages }}"
+        style="--columns-gap: {{ section.settings.columns_gap }}px; --rows-gap: {{ section.settings.rows_gap }}px;"
       >
         {% for article in blog.articles %}
+          {% liquid
+            assign is_hero = false
+            assign item_col_span = col_span
+            assign item_scale = 0.6
+
+            if show_hero and forloop.first
+              assign is_hero = true
+              assign item_col_span = 6
+              assign item_scale = 1
+            endif
+          %}
           {% style %}
             [data-blog-index="{{ section.id }}-{{ forloop.index }}"] {
-              --col-span: 2;
-              --blog-post-card-scale: 0.6;
+              --col-span: {{ item_col_span }};
+              --blog-post-card-scale: {{ item_scale }};
             }
 
             @media screen and (max-width: 749px) {
@@ -43,7 +62,7 @@
           {% endstyle %}
           <div
             ref="cards[]"
-            class="blog-post-item"
+            class="blog-post-item{% if is_hero %} blog-post-item--horizontal{% endif %}"
             data-testid="blog-post-item"
             data-blog-index="{{ section.id }}-{{ forloop.index }}"
             data-page="{{ paginate.current_page }}"
@@ -53,10 +72,10 @@
         {% endfor %}
       </div>
 
-      {% if paginate.next %}
+      {% if paginate.next and section.settings.view_more_text != blank %}
         <div class="blog-posts-view-more">
           <a ref="viewMoreNext" href="{{ paginate.next.url }}" class="blog-posts-view-more__link">
-            View more
+            {{ section.settings.view_more_text }}
           </a>
         </div>
       {% endif %}
@@ -71,8 +90,6 @@
   .blog-posts {
     --page-content-width: var(--narrow-page-width);
     --page-width: calc(var(--page-content-width) + (var(--page-margin) * 2));
-    --columns-gap: 36px;
-    --rows-gap: 36px;
   }
 
   .blog-posts-container {
@@ -166,6 +183,73 @@
     "groups": ["header"]
   },
   "settings": [
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "range",
+      "id": "posts_per_page",
+      "label": "Posts per page",
+      "min": 3,
+      "max": 12,
+      "step": 3,
+      "default": 3
+    },
+    {
+      "type": "checkbox",
+      "id": "show_hero_post",
+      "label": "Show featured post as hero",
+      "info": "Display the first post full-width at the top",
+      "default": false
+    },
+    {
+      "type": "select",
+      "id": "columns",
+      "label": "Columns",
+      "options": [
+        {
+          "value": "2",
+          "label": "2"
+        },
+        {
+          "value": "3",
+          "label": "3"
+        }
+      ],
+      "default": "3"
+    },
+    {
+      "type": "text",
+      "id": "view_more_text",
+      "label": "View more link text",
+      "info": "Leave blank to hide",
+      "default": "View more"
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "range",
+      "id": "columns_gap",
+      "label": "Column gap",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "rows_gap",
+      "label": "Row gap",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 36
+    },
     {
       "type": "color_scheme",
       "id": "color_scheme",
