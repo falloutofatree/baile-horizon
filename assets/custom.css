@@ -61,6 +61,7 @@
     border: 1px solid rgb(var(--color-foreground-rgb) / 0.2);
     border-radius: 100px;
     padding: 5px 12px;
+    height: auto;
     gap: 6px;
     transition: border-color var(--animation-speed) var(--animation-easing);
   }
@@ -98,6 +99,7 @@
     border: 1px solid rgb(var(--color-foreground-rgb) / 0.2);
     border-radius: 100px;
     padding: 5px 12px;
+    height: auto;
     gap: 6px;
     transition: border-color var(--animation-speed) var(--animation-easing);
   }
