@@ -25,9 +25,7 @@
       assign posts_per_page = section.settings.posts_per_page
       assign show_hero = section.settings.show_hero_post
       assign columns = section.settings.columns | plus: 0
-      assign col_span = 12 | divided_by: columns
       assign columns_mobile = section.settings.columns_mobile | default: 1 | plus: 0
-      assign mobile_col_span = 12 | divided_by: columns_mobile
     %}
 
     {% paginate blog.articles by posts_per_page %}
@@ -35,38 +33,20 @@
         ref="grid"
         class="blog-posts-container"
         data-last-page="{{ paginate.pages }}"
-        style="--columns-gap: {{ section.settings.columns_gap }}px; --rows-gap: {{ section.settings.rows_gap }}px;"
+        style="--columns: {{ columns }}; --columns-mobile: {{ columns_mobile }}; --columns-gap: {{ section.settings.columns_gap }}px; --rows-gap: {{ section.settings.rows_gap }}px;"
       >
         {% for article in blog.articles %}
           {% liquid
             assign is_hero = false
-            assign item_col_span = col_span
-            assign item_scale = 0.6
 
             if show_hero and forloop.first
               assign is_hero = true
-              assign item_col_span = 12
-              assign item_scale = 1
             endif
           %}
-          {% style %}
-            [data-blog-index="{{ section.id }}-{{ forloop.index }}"] {
-              --col-span: {{ item_col_span }};
-              --blog-post-card-scale: {{ item_scale }};
-            }
-
-            @media screen and (max-width: 749px) {
-              [data-blog-index="{{ section.id }}-{{ forloop.index }}"] {
-                --col-span: {{ mobile_col_span }};
-                --blog-post-card-scale: 0.5;
-              }
-            }
-          {% endstyle %}
           <div
             ref="cards[]"
             class="blog-post-item{% if is_hero %} blog-post-item--horizontal{% endif %}"
             data-testid="blog-post-item"
-            data-blog-index="{{ section.id }}-{{ forloop.index }}"
             data-page="{{ paginate.current_page }}"
           >
             {% content_for 'block', id: 'static-blog-post-card', type: '_blog-post-card', article: article %}
@@ -96,20 +76,20 @@
 
   .blog-posts-container {
     display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    gap: 1rem;
+    grid-template-columns: repeat(var(--columns), 1fr);
     width: 100%;
     column-gap: var(--columns-gap);
     row-gap: var(--rows-gap);
   }
 
-  /**
-   * Blog post item grid positioning and scaling.
-   * Layout is calculated in Liquid based on total article count.
-   * Mobile overrides are applied per-item in inline styles for proper specificity.
-   */
-  .blog-post-item {
-    grid-column: span var(--col-span);
+  @media screen and (max-width: 749px) {
+    .blog-posts-container {
+      grid-template-columns: repeat(var(--columns-mobile), 1fr);
+    }
+  }
+
+  .blog-post-item--horizontal {
+    grid-column: 1 / -1;
   }
 
   /**
