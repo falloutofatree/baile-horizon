@@ -132,7 +132,7 @@
               "type": "_blog-post-image",
               "static": true,
               "settings": {
-                "height": "large",
+                "image_ratio": "landscape",
                 "border": "none",
                 "border_width": 1,
                 "border_opacity": 100,
@@ -204,7 +204,9 @@
         "posts_per_page": 3,
         "show_hero_post": false,
         "columns": "3",
+        "columns_mobile": "1",
         "view_more_text": "View more",
+        "view_more_style": "button",
         "columns_gap": 36,
         "rows_gap": 36,
         "color_scheme": "scheme-2",

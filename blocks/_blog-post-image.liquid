@@ -1,5 +1,6 @@
 
 
+
 {%- doc -%}
   Renders the blog post image block.
 
@@ -9,7 +10,26 @@
 {%- assign image = article.image -%}
 
 {%- assign block_settings = block.settings -%}
-<div class="blog-post-card__image-container">
+
+{% liquid
+  assign ratio = 1
+  case block_settings.image_ratio
+    when 'landscape'
+      assign ratio = '16 / 9'
+    when 'portrait'
+      assign ratio = '4 / 5'
+    when 'square'
+      assign ratio = '1 / 1'
+    when 'adapt'
+      assign ratio = image.aspect_ratio
+  endcase
+
+  if ratio == 0 or ratio == null
+    assign ratio = 1
+  endif
+%}
+
+<div class="blog-post-card__image-container" style="--ratio: {{ ratio }}">
   <a href="{{ article.url }}">
     <img
       srcset="
@@ -28,7 +48,6 @@
       class="
         border-style
         blog-post-card__image
-        blog-post-card__image--{{ block_settings.height }}
       "
       style="{% render 'border-override', settings: block_settings %}"
     >
@@ -36,23 +55,16 @@
 </div>
 
 {% stylesheet %}
+  .blog-post-card__image-container {
+    aspect-ratio: var(--ratio);
+    overflow: hidden;
+  }
+
   .blog-post-card__image {
     width: 100%;
+    height: 100%;
     object-fit: cover;
     object-position: center center;
-    height: calc(var(--blog-post-card-img-height) * var(--blog-post-card-scale));
-  }
-
-  .blog-post-card__image--small {
-    --blog-post-card-img-height: 280px;
-  }
-
-  .blog-post-card__image--medium {
-    --blog-post-card-img-height: 340px;
-  }
-
-  .blog-post-card__image--large {
-    --blog-post-card-img-height: 400px;
   }
 {% endstylesheet %}
 
@@ -63,23 +75,28 @@
   "settings": [
     {
       "type": "select",
-      "id": "height",
-      "label": "t:settings.height",
+      "id": "image_ratio",
+      "label": "t:settings.aspect_ratio",
+      "info": "t:info.aspect_ratio_adjusted",
       "options": [
         {
-          "value": "small",
-          "label": "t:options.small"
+          "value": "adapt",
+          "label": "t:options.auto"
         },
         {
-          "value": "medium",
-          "label": "t:options.medium"
+          "value": "portrait",
+          "label": "t:options.portrait"
         },
         {
-          "value": "large",
-          "label": "t:options.large"
+          "value": "square",
+          "label": "t:options.square"
+        },
+        {
+          "value": "landscape",
+          "label": "t:options.landscape"
         }
       ],
-      "default": "large"
+      "default": "landscape"
     },
     {
       "type": "select",

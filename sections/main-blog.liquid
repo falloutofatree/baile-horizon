@@ -25,7 +25,9 @@
       assign posts_per_page = section.settings.posts_per_page
       assign show_hero = section.settings.show_hero_post
       assign columns = section.settings.columns | plus: 0
-      assign col_span = 6 | divided_by: columns
+      assign col_span = 12 | divided_by: columns
+      assign columns_mobile = section.settings.columns_mobile | default: 1 | plus: 0
+      assign mobile_col_span = 12 | divided_by: columns_mobile
     %}
 
     {% paginate blog.articles by posts_per_page %}
@@ -43,7 +45,7 @@
 
             if show_hero and forloop.first
               assign is_hero = true
-              assign item_col_span = 6
+              assign item_col_span = 12
               assign item_scale = 1
             endif
           %}
@@ -55,7 +57,7 @@
 
             @media screen and (max-width: 749px) {
               [data-blog-index="{{ section.id }}-{{ forloop.index }}"] {
-                --col-span: 6;
+                --col-span: {{ mobile_col_span }};
                 --blog-post-card-scale: 0.5;
               }
             }
@@ -74,7 +76,7 @@
 
       {% if paginate.next and section.settings.view_more_text != blank %}
         <div class="blog-posts-view-more">
-          <a ref="viewMoreNext" href="{{ paginate.next.url }}" class="blog-posts-view-more__link">
+          <a ref="viewMoreNext" href="{{ paginate.next.url }}" class="{{ section.settings.view_more_style }}">
             {{ section.settings.view_more_text }}
           </a>
         </div>
@@ -94,7 +96,7 @@
 
   .blog-posts-container {
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: repeat(12, 1fr);
     gap: 1rem;
     width: 100%;
     column-gap: var(--columns-gap);
@@ -129,7 +131,7 @@
     margin-top: var(--rows-gap);
   }
 
-  .blog-posts-view-more__link {
+  .blog-posts-view-more .link {
     display: inline-block;
     text-decoration: none;
     font-size: var(--font-size-static-small);
@@ -139,7 +141,7 @@
     transition: opacity 0.2s;
   }
 
-  .blog-posts-view-more__link:hover {
+  .blog-posts-view-more .link:hover {
     opacity: 0.7;
   }
 {% endstylesheet %}
@@ -215,16 +217,56 @@
         {
           "value": "3",
           "label": "3"
+        },
+        {
+          "value": "4",
+          "label": "4"
         }
       ],
       "default": "3"
     },
     {
+      "type": "select",
+      "id": "columns_mobile",
+      "label": "Mobile columns",
+      "options": [
+        {
+          "value": "1",
+          "label": "1"
+        },
+        {
+          "value": "2",
+          "label": "2"
+        }
+      ],
+      "default": "1"
+    },
+    {
       "type": "text",
       "id": "view_more_text",
-      "label": "View more link text",
+      "label": "View more button label",
       "info": "Leave blank to hide",
       "default": "View more"
+    },
+    {
+      "type": "select",
+      "id": "view_more_style",
+      "label": "View more button style",
+      "options": [
+        {
+          "value": "button",
+          "label": "t:options.primary"
+        },
+        {
+          "value": "button-secondary",
+          "label": "t:options.secondary"
+        },
+        {
+          "value": "link",
+          "label": "t:options.link"
+        }
+      ],
+      "default": "button"
     },
     {
       "type": "header",
