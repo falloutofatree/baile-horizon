@@ -12,11 +12,10 @@
       "type": "main-blog-post",
       "blocks": {
         "blog-post-title": {
-          "type": "text",
+          "type": "_blog-post-title",
           "name": "Title",
           "static": true,
           "settings": {
-            "text": "<h1>{{ article.title }}</h1>",
             "width": "100%",
             "max_width": "normal",
             "alignment": "center",
