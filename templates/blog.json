@@ -205,7 +205,7 @@
       "settings": {
         "posts_per_page": 12,
         "show_hero_post": false,
-        "columns": "3",
+        "columns": "4",
         "columns_mobile": "1",
         "pagination_type": "infinite_scroll",
         "view_more_text": "View more",
