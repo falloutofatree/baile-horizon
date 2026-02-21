@@ -16,7 +16,8 @@
     "
   >
     <header>
-      {%- content_for 'block', id: 'blog-post-title', type: '_blog-post-title' %}
+      {%- capture blog_post_title -%}<h1>{{ article.title }}</h1>{%- endcapture -%}
+      {%- content_for 'block', id: 'blog-post-title', type: 'text', text: blog_post_title %}
       {%- content_for 'block', id: 'blog-post-details', type: '_blog-post-info-text' %}
     </header>
 
