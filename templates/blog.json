@@ -154,7 +154,7 @@
                 "wrap": "pretty",
                 "color": "var(--color-foreground-heading)",
                 "text": "",
-                "read_only": false,
+                "read_only": true,
                 "alignment": "left",
                 "show_alignment": false,
                 "padding-block-start": 0,
