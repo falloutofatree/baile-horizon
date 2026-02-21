@@ -116,7 +116,7 @@
   .blog-posts-view-more {
     display: flex;
     justify-content: center;
-    margin-top: 20px;
+    margin-top: 36px;
   }
 
   .blog-posts-view-more .link {
@@ -231,7 +231,7 @@
       "min": 3,
       "max": 12,
       "step": 3,
-      "default": 3
+      "default": 12
     },
     {
       "type": "select",
@@ -254,14 +254,15 @@
       "type": "text",
       "id": "view_more_text",
       "label": "Button label",
-      "info": "Only used when pagination style is \"Button\"",
-      "default": "View more"
+      "default": "View more",
+      "allow_dynamic_sources": false,
+      "visible_if": "{{ section.settings.pagination_type == 'button' }}"
     },
     {
       "type": "select",
       "id": "view_more_style",
       "label": "Button style",
-      "info": "Only used when pagination style is \"Button\"",
+      "visible_if": "{{ section.settings.pagination_type == 'button' }}",
       "options": [
         {
           "value": "button",
