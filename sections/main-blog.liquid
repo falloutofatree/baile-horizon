@@ -6,7 +6,7 @@
   fetchpriority="low"
 ></script>
 
-<blog-posts-list section-id="{{ section.id }}">
+<blog-posts-list section-id="{{ section.id }}" pagination-type="{{ section.settings.pagination_type }}">
   <div class="section-background color-{{ section.settings.color_scheme }}"></div>
   <div
     class="
@@ -54,12 +54,16 @@
         {% endfor %}
       </div>
 
-      {% if paginate.next and section.settings.view_more_text != blank %}
-        <div class="blog-posts-view-more">
-          <a ref="viewMoreNext" href="{{ paginate.next.url }}" class="{{ section.settings.view_more_style }}">
-            {{ section.settings.view_more_text }}
-          </a>
-        </div>
+      {% if paginate.next %}
+        {% if section.settings.pagination_type == 'infinite_scroll' %}
+          <div ref="viewMoreNext" class="blog-posts-scroll-sentinel" aria-hidden="true"></div>
+        {% elsif section.settings.view_more_text != blank %}
+          <div class="blog-posts-view-more">
+            <a ref="viewMoreNext" href="{{ paginate.next.url }}" class="{{ section.settings.view_more_style }}">
+              {{ section.settings.view_more_text }}
+            </a>
+          </div>
+        {% endif %}
       {% endif %}
     {% endpaginate %}
   </div>
@@ -105,10 +109,14 @@
     padding: 0;
   }
 
+  .blog-posts-scroll-sentinel {
+    height: 1px;
+  }
+
   .blog-posts-view-more {
     display: flex;
     justify-content: center;
-    margin-top: var(--rows-gap);
+    margin-top: 20px;
   }
 
   .blog-posts-view-more .link {
@@ -170,22 +178,6 @@
       "content": "Layout"
     },
     {
-      "type": "range",
-      "id": "posts_per_page",
-      "label": "Posts per page",
-      "min": 3,
-      "max": 12,
-      "step": 3,
-      "default": 3
-    },
-    {
-      "type": "checkbox",
-      "id": "show_hero_post",
-      "label": "Show featured post as hero",
-      "info": "Display the first post full-width at the top",
-      "default": false
-    },
-    {
       "type": "select",
       "id": "columns",
       "label": "Columns",
@@ -222,16 +214,54 @@
       "default": "1"
     },
     {
+      "type": "checkbox",
+      "id": "show_hero_post",
+      "label": "Show featured post as hero",
+      "info": "Display the first post full-width at the top",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Pagination"
+    },
+    {
+      "type": "range",
+      "id": "posts_per_page",
+      "label": "Posts per page",
+      "min": 3,
+      "max": 12,
+      "step": 3,
+      "default": 3
+    },
+    {
+      "type": "select",
+      "id": "pagination_type",
+      "label": "Pagination style",
+      "info": "Infinite scroll loads posts automatically as you scroll. Button requires a click.",
+      "options": [
+        {
+          "value": "infinite_scroll",
+          "label": "Infinite scroll"
+        },
+        {
+          "value": "button",
+          "label": "Button"
+        }
+      ],
+      "default": "infinite_scroll"
+    },
+    {
       "type": "text",
       "id": "view_more_text",
-      "label": "View more button label",
-      "info": "Leave blank to hide",
+      "label": "Button label",
+      "info": "Only used when pagination style is \"Button\"",
       "default": "View more"
     },
     {
       "type": "select",
       "id": "view_more_style",
-      "label": "View more button style",
+      "label": "Button style",
+      "info": "Only used when pagination style is \"Button\"",
       "options": [
         {
           "value": "button",
