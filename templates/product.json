@@ -53,6 +53,7 @@
             "details_position": "flex-start",
             "gap": 24,
             "sticky_details_desktop": false,
+            "mobile_header_block_count": 2,
             "inherit_color_scheme": true,
             "color_scheme": "",
             "background_media": "none",

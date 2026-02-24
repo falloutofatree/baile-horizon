@@ -1,14 +1,16 @@
 
 
 {%- assign block_settings = block.settings -%}
+{%- assign mobile_header_blocks = block_settings.mobile_header_block_count | default: 0 -%}
 <div
   id="ProductInformation-{{ section.id }}"
   class="
     product-details
+    {% if mobile_header_blocks > 0 %} product-details--mobile-split{% endif %}
     {% if block_settings.sticky_details_desktop %} sticky-content--desktop{% endif %}
     {% if block_settings.height == 'fill' -%} full-height--desktop{% endif -%}
   "
-  style="--details-position: {{ block_settings.details_position }};"
+  style="--details-position: {{ block_settings.details_position }}; --product-details-gap: {{ block_settings.gap }}px;"
   data-testid="product-information-details"
   {% if settings.transition_to_main_product %}
     data-view-transition-type="product-details"
@@ -28,6 +30,20 @@
 
   {% render 'group', children: children, settings: block_settings, shopify_attributes: block.shopify_attributes %}
 </div>
+
+{% if mobile_header_blocks > 0 %}
+  {% comment %}
+    +1 accounts for the hidden .view-product-title element which is the first child of group-block-content
+  {% endcomment %}
+  {%- assign nth_count = mobile_header_blocks | plus: 1 -%}
+  <style>
+    @media screen and (max-width: 749px) {
+      #ProductInformation-{{ section.id }}.product-details--mobile-split > .group-block > .group-block-content > *:nth-child(-n+{{ nth_count }}) {
+        order: -1;
+      }
+    }
+  </style>
+{% endif %}
 
 {% stylesheet %}
   /* Clear padding on mobile, if not full-width */
@@ -61,6 +77,30 @@
 
     .full-height--desktop .group-block {
       align-self: var(--details-position, 'flex-start');
+    }
+  }
+
+  /* Mobile split layout: move leading detail blocks above media */
+  @media screen and (max-width: 749px) {
+    .product-details--mobile-split {
+      display: contents;
+    }
+
+    .product-details--mobile-split > .group-block {
+      display: contents;
+    }
+
+    .product-details--mobile-split > .group-block > .group-block__media-wrapper {
+      display: none;
+    }
+
+    .product-details--mobile-split > .group-block > .group-block-content {
+      display: contents;
+    }
+
+    .product-details--mobile-split > .group-block > .group-block-content > * {
+      grid-column: 2 / 3;
+      order: 1;
     }
   }
 {% endstylesheet %}
@@ -254,6 +294,16 @@
       "id": "sticky_details_desktop",
       "label": "t:settings.make_details_sticky_desktop",
       "default": false
+    },
+    {
+      "type": "range",
+      "id": "mobile_header_block_count",
+      "label": "Mobile header blocks above media",
+      "info": "Number of leading blocks to show above media on mobile (0 to disable)",
+      "min": 0,
+      "max": 10,
+      "step": 1,
+      "default": 0
     },
     {
       "type": "header",

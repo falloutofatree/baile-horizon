@@ -149,6 +149,15 @@
     .product-details {
       grid-column: 2 / 3;
     }
+
+    /* When product details are split on mobile, add row gap and explicit media order */
+    .product-information__grid:has(.product-details--mobile-split) {
+      row-gap: var(--product-details-gap, 0px);
+    }
+
+    .product-information__grid:has(.product-details--mobile-split) > .product-information__media {
+      order: 0;
+    }
   }
 
   /* Desktop styles */
