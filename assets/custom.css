@@ -67,6 +67,89 @@ div#klaviyo-product-reviews-wrapper {
     background-color: #fffaf0;
 }
 
+/* Header menu styling */
+
+.mega-menu__link,
+span.menu-drawer__menu-item-text.wrap-text {
+  font-family: "Quattrocento Sans", sans-serif !important;
+  font-size: 16px !important;
+  color: #5d5e4c !important;
+}
+.account-button__text,
+a.header__icon.link.focus-inset.mobile\:hidden {
+  font-family: "Quattrocento Sans", sans-serif !important;
+  font-size: 16px !important;
+  color: #5d5e4c !important;
+  padding: 0 10px !important;
+}
+
+a.mega-menu__link.mega-menu__link--parent {
+  font-family: "Americana", serif !important;
+  font-size: 12px !important;
+  margin-bottom: 12px !important;
+}
+
+button.account-button.header-actions__action{
+  padding: 0 10px;
+}
+
+a.header__icon.link.focus-inset.mobile\:hidden {
+    padding-top: 2px !important;
+}
+
+/* Force the media block to stay a specific aspect ratio */
+.group-block.group-block--height-fill.group-block--width-fill.border-style.spacing-style.size-style {
+  aspect-ratio: 5 / 4 !important; 
+  height: auto !important;
+}
+
+/* 1. Force the container to scroll. We target ONLY the wrapper so it doesn't double up. */
+div.facets__inputs-wrapper {
+  max-height: 250px !important;
+  overflow-y: scroll !important; /* 'scroll' forces the space to stay open */
+  overflow-x: hidden !important;
+}
+
+/* 2. The WebKit Hack: Force solid colors so the browser cannot fade it out */
+div.facets__inputs-wrapper::-webkit-scrollbar {
+  width: 8px !important;
+  height: 8px !important;
+  -webkit-appearance: none !important;
+  /* Using rgba() forces it to render as a solid graphic */
+  background: rgba(241, 241, 241, 1) !important; 
+}
+
+/* 3. The Track */
+div.facets__inputs-wrapper::-webkit-scrollbar-track {
+  background: rgba(241, 241, 241, 1) !important;
+  border-radius: 4px !important;
+}
+
+/* 4. The Thumb (The moving part) */
+div.facets__inputs-wrapper::-webkit-scrollbar-thumb {
+  background: rgba(136, 136, 136, 1) !important;
+  border-radius: 4px !important;
+  border: 2px solid rgba(241, 241, 241, 1) !important; /* Adds a border to make it pop */
+}
+
+/* 5. Fallback for Firefox */
+div.facets__inputs-wrapper {
+  scrollbar-width: thin !important;
+  scrollbar-color: #888888 #f1f1f1 !important;
+}
+
+._carouselContainer_17v2f_1.tolstoy-carousel-container {
+  max-width: 100% !important;
+}
+
+div#shopify-block-Ab3E0RmdBQXJ3UU1aM__tolstoy_shoppable_video_quiz_carousel_block_Twczw3 {
+  max-width:  100%;
+}
+
+span.ai-product-accordion__title-ace1mmjirn3vhwhfwqaigenblock929ef7ekdgada {
+  color: #5d5e4c;
+}
+
 /* Collection filter & sort - pill button styling */
 @media screen and (min-width: 750px) {
   .facets--horizontal .facets__summary {
@@ -124,4 +207,18 @@ div#klaviyo-product-reviews-wrapper {
     border-color: rgb(var(--color-foreground-rgb) / 0.5);
   }
 
+}
+
+
+@media screen and (max-width: 749px) {
+  .shopify-section-group-footer-group .footer-content {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 24px !important;
+  }
+  
+
+  .shopify-section-group-footer-group .footer-content > .group-block:has(.social-icons__wrapper) {
+    order: 99 !important;
+  }
 }

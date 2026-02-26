@@ -19,30 +19,42 @@
   ref="trigger"
   {{ attributes }}
 >
-  {%- if customer.has_avatar? -%}
-    {{ customer | avatar }}
-  {%- elsif customer.first_name or customer.email -%}
-    {%- liquid
-      assign initial = customer.email | first
+  {% comment %} ===== MOBILE: ORIGINAL ICON/AVATAR ===== {% endcomment %}
+  <span class="account-button__visual">
+    {%- if customer.has_avatar? -%}
+      {{ customer | avatar }}
+    {%- elsif customer.first_name or customer.email -%}
+      {%- liquid
+        assign initial = customer.email | first
 
-      if customer.first_name != blank
-        assign initial = customer.first_name | first
-      endif
-    -%}
-    <span
-      class="account-button__avatar"
-      aria-hidden="true"
-    >
-      {{- initial -}}
-    </span>
-  {%- else -%}
-    <span
-      class="account-button__icon"
-      aria-hidden="true"
-    >
-      {{- 'icon-account.svg' | inline_asset_content -}}
-    </span>
-  {%- endif -%}
+        if customer.first_name != blank
+          assign initial = customer.first_name | first
+        endif
+      -%}
+      <span
+        class="account-button__avatar"
+        aria-hidden="true"
+      >
+        {{- initial -}}
+      </span>
+    {%- else -%}
+      <span
+        class="account-button__icon"
+        aria-hidden="true"
+      >
+        {{- 'icon-account.svg' | inline_asset_content -}}
+      </span>
+    {%- endif -%}
+  </span>
+
+  {% comment %} ===== DESKTOP: CUSTOM DYNAMIC TEXT ===== {% endcomment %}
+  <span class="account-button__text">
+    {%- if customer -%}
+      Account
+    {%- else -%}
+      Sign in
+    {%- endif -%}
+  </span>
 </{{ tag }}>
 
 {% stylesheet %}
@@ -88,5 +100,36 @@
   /* The shop avatar doesn't bubble the click event up to our button, so we need to prevent that or the button doesn't work */
   .account-button shop-user-avatar {
     pointer-events: none;
+  }
+
+  /* ==========================================
+     CUSTOM DESKTOP/MOBILE SWAP
+  ========================================== */
+  
+  /* 1. Hide the text by default (so mobile only sees the icon) */
+  .account-button__text {
+    display: none;
+    font-size: 1.4rem;
+    font-weight: 500;
+    white-space: nowrap;
+  }
+
+  /* 2. On Desktop, swap them! */
+  @media screen and (min-width: 750px) {
+    /* Hide the icon */
+    .account-button__visual {
+      display: none !important;
+    }
+    
+    /* Show the text */
+    .account-button__text {
+      display: block;
+    }
+
+    /* Override the default button width so the text isn't squished */
+    .account-button {
+      width: auto !important;
+      padding: 0 1rem;
+    }
   }
 {% endstylesheet %}

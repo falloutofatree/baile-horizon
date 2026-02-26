@@ -18,7 +18,20 @@
       data-hydration-key="header-drawer-mobile"
       {{ block.shopify_attributes }}
     >
-      {% render 'header-drawer', linklist: block_settings.menu, data_header_drawer_type: 'mobile-drawer' %}
+      {% comment %} 
+      =========================================
+      CUSTOM MOBILE MENU LOGIC
+      Uses the specific mobile menu if set in the header settings.
+      Otherwise, it falls back to the default desktop menu.
+      ========================================= 
+      {% endcomment %}
+      {% liquid
+        assign active_mobile_menu = section.settings.mobile_menu
+        if active_mobile_menu == blank
+          assign active_mobile_menu = block_settings.menu
+        endif
+      %}
+      {% render 'header-drawer', linklist: active_mobile_menu, data_header_drawer_type: 'mobile-drawer' %}
     </div>
 
   {% when 'navigation_bar' %}

@@ -991,13 +991,35 @@
     hydrate('{{ section.id }}', url);
   </script>
 {% endunless %}
-
+{% comment %} 
+=========================================
+CUSTOM MOBILE MENU SETTING
+Added a specific link_list setting for a distinct Mobile Menu.
+If the theme is updated, re-add the "mobile_menu" and "Reward Link Text" JSON object 
+in the schema below.
+========================================= 
+{% endcomment %}
 {% schema %}
 {
   "name": "t:names.header",
   "tag": "header",
   "class": "header-section",
   "settings": [
+    {
+      "type": "header",
+      "content": "Reward Link"
+    },
+    {
+      "type": "text",
+      "id": "reward_text",
+      "label": "Reward Link Text",
+      "default": "Get $10 Off"
+    },
+    {
+      "type": "url",
+      "id": "reward_url",
+      "label": "Reward Link URL"
+    },
     {
       "type": "header",
       "content": "t:content.logo"
@@ -1025,6 +1047,12 @@
     {
       "type": "header",
       "content": "t:content.menu"
+    },
+    {
+      "type": "link_list",
+      "id": "mobile_menu",
+      "label": "Mobile Menu",
+      "info": "Select a different menu for mobile devices. If left blank, the main menu will be used."
     },
     {
       "type": "select",

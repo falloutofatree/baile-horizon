@@ -77,6 +77,13 @@
     </dialog-component>
   {% endif %}
 
+  {%- if section.settings.reward_text != blank -%}
+    <a href="{{ section.settings.reward_url | default: 'https://baile.referralcandy.com/' }}" class="header__icon link focus-inset mobile:hidden" style="text-decoration: none; padding: 0 1.5rem; display: flex; align-items: center; font-size: 1.4rem; font-weight: 500; white-space: nowrap;">
+      {{ section.settings.reward_text }}
+    </a>
+  {%- endif -%}
+  {% comment %} ===== END CUSTOM DESKTOP SETTINGS ===== {% endcomment %}
+
   {% if settings.cart_type == 'drawer' and template.name != 'cart' %}
     <script
       src="{{ 'cart-drawer.js' | asset_url }}"

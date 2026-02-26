@@ -236,7 +236,7 @@
       "blocks": {
         "group_HCAncw": {
           "type": "group",
-          "name": "Newsletter",
+          "name": "Logo",
           "settings": {
             "content_direction": "column",
             "vertical_on_mobile": true,
@@ -248,7 +248,7 @@
             "gap": 0,
             "width": "fill",
             "custom_width": 20,
-            "width_mobile": "fill",
+            "width_mobile": "custom",
             "custom_width_mobile": 100,
             "height": "fit",
             "custom_height": 100,
