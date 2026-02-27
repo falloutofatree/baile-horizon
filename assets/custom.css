@@ -55,7 +55,7 @@ a.link {
   text-underline-offset: 8px;
 }
 
-.section img {
+.section img:not(.hero__media) {
   object-position: bottom;
 }
 

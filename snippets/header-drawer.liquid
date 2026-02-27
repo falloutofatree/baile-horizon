@@ -112,8 +112,7 @@
                   {%- endcomment -%}
                   {% liquid
                     assign accordion_state = ''
-                    if first_accordion_open == false and block_settings.drawer_accordion_expand_first
-                      assign first_accordion_open = true
+                    if block_settings.drawer_accordion_expand_first
                       assign accordion_state = 'open-by-default-on-mobile'
                     endif
                   %}
@@ -354,8 +353,7 @@
                               {%- else -%}
                                 {% liquid
                                   assign accordion_state = ''
-                                  if first_accordion_open == false and block_settings.drawer_accordion and block_settings.drawer_accordion_expand_first
-                                    assign first_accordion_open = true
+                                  if block_settings.drawer_accordion and block_settings.drawer_accordion_expand_first
                                     assign accordion_state = 'open-by-default-on-mobile'
                                   endif
                                 %}
