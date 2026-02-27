@@ -377,6 +377,48 @@
     --menu-font-2xl--size: 1.75rem;
     --menu-font-2xl--line-height: calc(1.1 + 0.5 * min(16 / 28));
 
+    /* Mobile: reduce all font sizes by 2px */
+    @media screen and (max-width: 749px) {
+      {% liquid
+        for font_size in font_sizes
+          assign size_setting = 'type_size_[font_size]' | replace: '[font_size]', font_size
+          assign font_size_value = settings[size_setting] | times: 1
+          assign mobile_value = font_size_value | minus: 2
+          if mobile_value < 8
+            assign mobile_value = 8
+          endif
+          assign mobile_rem = mobile_value | divided_by: 16.0
+          echo '--font-size--[font_size]: [mobile_rem]rem;' | replace: '[font_size]', font_size | replace: '[mobile_rem]', mobile_rem
+        endfor
+
+        for preset_name in type_presets
+          assign mobile_preset_size = '--font-size--[preset_name]' | replace: '[preset_name]', preset_name
+          echo '--font-[preset_name]--size: var([mobile_preset_size]);' | replace: '[preset_name]', preset_name | replace: '[mobile_preset_size]', mobile_preset_size
+        endfor
+      %}
+
+      /* Hardcoded font sizes - 2px smaller */
+      --font-size--3xs: 0.5rem;
+      --font-size--2xs: 0.625rem;
+      --font-size--xs: 0.6875rem;
+      --font-size--sm: 0.75rem;
+      --font-size--md: 0.875rem;
+      --font-size--lg: 1rem;
+      --font-size--xl: 1.125rem;
+      --font-size--2xl: 1.375rem;
+      --font-size--3xl: 1.875rem;
+      --font-size--4xl: 2.375rem;
+      --font-size--5xl: 2.875rem;
+      --font-size--6xl: 3.375rem;
+
+      /* Menu font sizes - 2px smaller */
+      --menu-font-sm--size: 0.75rem;
+      --menu-font-md--size: 0.875rem;
+      --menu-font-lg--size: 1rem;
+      --menu-font-xl--size: 1.125rem;
+      --menu-font-2xl--size: 1.625rem;
+    }
+
     /* Colors */
     --color-error: #8B0000;
     --color-success: #006400;
