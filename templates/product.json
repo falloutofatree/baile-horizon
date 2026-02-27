@@ -157,7 +157,7 @@
             "aspect_ratio": "1",
             "constrain_to_viewport": true,
             "media_fit": "contain",
-            "media_radius": 2,
+            "media_radius": 0,
             "extend_media": false,
             "zoom": true,
             "video_loop": false,
@@ -236,29 +236,11 @@
                 "padding-inline-end": 0
               },
               "blocks": {
-                "text_aQz4Li": {
-                  "type": "text",
-                  "name": "t:names.text",
+                "custom_liquid_Bkheh3": {
+                  "type": "custom-liquid",
+                  "name": "Vendor",
                   "settings": {
-                    "text": "<p>{{ closest.product.vendor }}</p>",
-                    "width": "fit-content",
-                    "max_width": "normal",
-                    "alignment": "left",
-                    "type_preset": "rte",
-                    "font": "var(--font-body--family)",
-                    "font_size": "1rem",
-                    "line_height": "normal",
-                    "letter_spacing": "normal",
-                    "case": "none",
-                    "wrap": "pretty",
-                    "color": "var(--color-foreground)",
-                    "background": false,
-                    "background_color": "#00000026",
-                    "corner_radius": 0,
-                    "padding-block-start": 0,
-                    "padding-block-end": 0,
-                    "padding-inline-start": 0,
-                    "padding-inline-end": 0
+                    "custom_liquid": "<a class=\"link\" href=\"/collections/shop-all?filter.p.vendor={{ product.vendor | url_encode }}\">{{ product.vendor }}</a>"
                   },
                   "blocks": {}
                 },
@@ -365,7 +347,7 @@
                 }
               },
               "block_order": [
-                "text_aQz4Li",
+                "custom_liquid_Bkheh3",
                 "text_GwYGr4",
                 "group_GKKPCz"
               ]
@@ -497,8 +479,8 @@
             "hide_variants": true,
             "padding-block-start": 0,
             "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
+            "padding-inline-start": 24,
+            "padding-inline-end": 24
           },
           "blocks": {}
         },
