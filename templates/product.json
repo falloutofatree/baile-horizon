@@ -413,6 +413,14 @@
               },
               "block_order": []
             },
+            "custom_liquid_qLWLdy": {
+              "type": "custom-liquid",
+              "name": "Shop Pay Installments",
+              "settings": {
+                "custom_liquid": "{% form 'product', product %}\n  {{ form | payment_terms }}\n{% endform %}"
+              },
+              "blocks": {}
+            },
             "ai_gen_block_929ef7e_kDGADa": {
               "type": "ai_gen_block_929ef7e",
               "settings": {
@@ -431,6 +439,7 @@
             "divider_Upx7jk",
             "variant_picker_yAyXKx",
             "buy_buttons_HEUbMQ",
+            "custom_liquid_qLWLdy",
             "ai_gen_block_929ef7e_kDGADa"
           ]
         }
