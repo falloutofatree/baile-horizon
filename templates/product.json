@@ -417,7 +417,7 @@
               "type": "custom-liquid",
               "name": "Shop Pay Installments",
               "settings": {
-                "custom_liquid": "{% form 'product', product %}\n  {{ form | payment_terms }}\n{% endform %}"
+                "custom_liquid": "{% form 'product', product %}\n  {{ form | payment_terms }}\n{% endform %}\n<script>\ncustomElements.whenDefined('shopify-payment-terms').then(function() {\n  document.querySelectorAll('shopify-payment-terms').forEach(function(el) {\n    (function check() {\n      if (el.shadowRoot) {\n        var s = document.createElement('style');\n        s.textContent = '* { font-family: inherit !important; font-size: inherit !important; }';\n        el.shadowRoot.appendChild(s);\n      } else requestAnimationFrame(check);\n    })();\n  });\n});\n</script>"
               },
               "blocks": {}
             },

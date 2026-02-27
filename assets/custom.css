@@ -150,16 +150,6 @@ span.ai-product-accordion__title-ace1mmjirn3vhwhfwqaigenblock929ef7ekdgada {
   color: #5d5e4c;
 }
 
-/* Shop Pay Installments callout - force theme font */
-shopify-payment-terms,
-form.payment-terms {
-  font-family: var(--font-body--family) !important;
-  font-size: var(--font-paragraph--size) !important;
-  font-style: var(--font-body--style);
-  font-weight: var(--font-body--weight);
-  color: rgb(var(--color-foreground-rgb) / var(--opacity-subdued-text));
-}
-
 /* Collection filter & sort - pill button styling */
 @media screen and (min-width: 750px) {
   .facets--horizontal .facets__summary {
