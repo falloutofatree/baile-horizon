@@ -34,8 +34,8 @@
 
   /* 2. ON MOBILE: Hide the bottom group, keep the top group */
   @media screen and (max-width: 768px) {
-    /* STEP A: Hide ALL group blocks in this section on mobile */
-    .group-block-content.layout-panel-flex.layout-panel-flex--column.mobile-column {
+    /* STEP A: Hide ALL group blocks ONLY inside this specific product section on mobile */
+    #shopify-section-{{ section.id }} .group-block-content.layout-panel-flex.layout-panel-flex--column.mobile-column {
       display: none !important; 
     }
     

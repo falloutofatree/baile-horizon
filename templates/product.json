@@ -52,29 +52,11 @@
             "padding-inline-end": 24
           },
           "blocks": {
-            "text_7GcYdW": {
-              "type": "text",
-              "name": "t:names.text",
+            "custom_liquid_JPFPfW": {
+              "type": "custom-liquid",
+              "name": "Vendor",
               "settings": {
-                "text": "<p>{{ closest.product.vendor }}</p>",
-                "width": "fit-content",
-                "max_width": "normal",
-                "alignment": "left",
-                "type_preset": "rte",
-                "font": "var(--font-body--family)",
-                "font_size": "1rem",
-                "line_height": "normal",
-                "letter_spacing": "normal",
-                "case": "none",
-                "wrap": "pretty",
-                "color": "var(--color-foreground)",
-                "background": false,
-                "background_color": "#00000026",
-                "corner_radius": 0,
-                "padding-block-start": 0,
-                "padding-block-end": 24,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
+                "custom_liquid": "<a class=\"link\" href=\"/collections/shop-all?filter.p.vendor={{ product.vendor | url_encode }}\">{{ product.vendor }}</a>"
               },
               "blocks": {}
             },
@@ -97,7 +79,7 @@
                 "background": false,
                 "background_color": "#00000026",
                 "corner_radius": 0,
-                "padding-block-start": 0,
+                "padding-block-start": 24,
                 "padding-block-end": 24,
                 "padding-inline-start": 0,
                 "padding-inline-end": 0
@@ -134,7 +116,7 @@
             }
           },
           "block_order": [
-            "text_7GcYdW",
+            "custom_liquid_JPFPfW",
             "text_VFXWmR",
             "klaviyo_reviews_average_rating_F3gyf8",
             "price_EVYN8q"

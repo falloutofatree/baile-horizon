@@ -49,7 +49,8 @@
   align-items: baseline;
 }
 
-.section a.link {
+.section a.link,
+a.link {
   text-decoration: underline;
   text-underline-offset: 8px;
 }
@@ -68,7 +69,6 @@ div#klaviyo-product-reviews-wrapper {
 }
 
 /* Header menu styling */
-
 .mega-menu__link,
 span.menu-drawer__menu-item-text.wrap-text {
   font-family: "Quattrocento Sans", sans-serif !important;
@@ -90,7 +90,7 @@ a.mega-menu__link.mega-menu__link--parent {
 }
 
 button.account-button.header-actions__action{
-  padding: 0 10px;
+  padding: 0 5px;
 }
 
 a.header__icon.link.focus-inset.mobile\:hidden {
@@ -103,36 +103,31 @@ a.header__icon.link.focus-inset.mobile\:hidden {
   height: auto !important;
 }
 
-/* 1. Force the container to scroll. We target ONLY the wrapper so it doesn't double up. */
+/* Add scroll on PLP filter */
 div.facets__inputs-wrapper {
   max-height: 250px !important;
-  overflow-y: scroll !important; /* 'scroll' forces the space to stay open */
+  overflow-y: scroll !important;
   overflow-x: hidden !important;
 }
 
-/* 2. The WebKit Hack: Force solid colors so the browser cannot fade it out */
 div.facets__inputs-wrapper::-webkit-scrollbar {
   width: 8px !important;
   height: 8px !important;
   -webkit-appearance: none !important;
-  /* Using rgba() forces it to render as a solid graphic */
   background: rgba(241, 241, 241, 1) !important; 
 }
 
-/* 3. The Track */
 div.facets__inputs-wrapper::-webkit-scrollbar-track {
   background: rgba(241, 241, 241, 1) !important;
   border-radius: 4px !important;
 }
 
-/* 4. The Thumb (The moving part) */
 div.facets__inputs-wrapper::-webkit-scrollbar-thumb {
   background: rgba(136, 136, 136, 1) !important;
   border-radius: 4px !important;
-  border: 2px solid rgba(241, 241, 241, 1) !important; /* Adds a border to make it pop */
+  border: 2px solid rgba(241, 241, 241, 1) !important;
 }
 
-/* 5. Fallback for Firefox */
 div.facets__inputs-wrapper {
   scrollbar-width: thin !important;
   scrollbar-color: #888888 #f1f1f1 !important;
