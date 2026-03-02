@@ -55,7 +55,7 @@ a.link {
   text-underline-offset: 8px;
 }
 
-.section img {
+.section img:not(.hero__media, .blog-post-card__image) {
   object-position: bottom;
 }
 
@@ -222,7 +222,6 @@ summary.details__header {
 
 }
 
-
 @media screen and (max-width: 749px) {
   .shopify-section-group-footer-group .footer-content {
     display: flex !important;
@@ -235,3 +234,5 @@ summary.details__header {
     order: 99 !important;
   }
 }
+
+.rte img {width:auto}

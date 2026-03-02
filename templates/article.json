@@ -6,21 +6,44 @@
  * or related systems. Please exercise caution as any changes
  * made to this file may be overwritten.
  * ------------------------------------------------------------
- */{
+ */
+{
   "sections": {
     "section": {
       "type": "main-blog-post",
       "blocks": {
+        "blog-post-image": {
+          "type": "_blog-post-featured-image",
+          "name": "Featured image",
+          "static": true,
+          "settings": {
+            "image_ratio": "square",
+            "width": "fill",
+            "custom_width": 100,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100,
+            "height": "fit",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
         "blog-post-title": {
           "type": "text",
           "name": "Title",
           "static": true,
           "settings": {
-            "text": "<h1>{{ article.title }}</h1>",
+            "text": "<h4>{{ article.title }}</h4>",
             "width": "100%",
             "max_width": "normal",
-            "alignment": "center",
-            "type_preset": "h2",
+            "alignment": "left",
+            "type_preset": "rte",
             "font": "var(--font-primary--family)",
             "font_size": "",
             "line_height": "normal",
@@ -43,35 +66,13 @@
           "name": "Details",
           "static": true,
           "settings": {
-            "show_date": true,
+            "show_date": false,
             "show_author": false,
             "type_preset": "",
-            "alignment": "center",
+            "alignment": "left",
             "show_alignment": true,
             "padding-block-start": 24,
             "padding-block-end": 0
-          },
-          "blocks": {}
-        },
-        "blog-post-image": {
-          "type": "image",
-          "name": "Featured image",
-          "static": true,
-          "settings": {
-            "image_ratio": "landscape",
-            "width": "fill",
-            "custom_width": 100,
-            "width_mobile": "fill",
-            "custom_width_mobile": 100,
-            "height": "fit",
-            "border": "none",
-            "border_width": 1,
-            "border_opacity": 100,
-            "border_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
           },
           "blocks": {}
         },
@@ -85,6 +86,7 @@
       "settings": {
         "content_direction": "column",
         "gap": 32,
+        "hero_color_scheme": "scheme-caa1ae44-93bf-47ef-ab06-4c3def4f0ed9",
         "color_scheme": "",
         "padding-block-start": 40,
         "padding-block-end": 80

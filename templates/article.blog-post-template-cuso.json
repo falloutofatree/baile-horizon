@@ -12,6 +12,26 @@
     "section": {
       "type": "main-blog-post",
       "blocks": {
+        "blog-post-image": {
+          "type": "_blog-post-featured-image",
+          "static": true,
+          "settings": {
+            "image_ratio": "square",
+            "width": "fill",
+            "custom_width": 100,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100,
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
         "blog-post-title": {
           "type": "text",
           "name": "Title",
@@ -20,7 +40,7 @@
             "text": "<h1>{{ article.title }}</h1>",
             "width": "100%",
             "max_width": "normal",
-            "alignment": "center",
+            "alignment": "left",
             "type_preset": "h2",
             "font": "var(--font-primary--family)",
             "font_size": "",
@@ -47,31 +67,10 @@
             "show_date": true,
             "show_author": false,
             "type_preset": "",
-            "alignment": "center",
+            "alignment": "left",
             "show_alignment": true,
             "padding-block-start": 24,
             "padding-block-end": 0
-          },
-          "blocks": {}
-        },
-        "blog-post-image": {
-          "type": "_blog-post-featured-image",
-          "static": true,
-          "settings": {
-            "image_ratio": "landscape",
-            "width": "fill",
-            "custom_width": 100,
-            "width_mobile": "fill",
-            "custom_width_mobile": 100,
-            "height": "fit",
-            "border": "none",
-            "border_width": 1,
-            "border_opacity": 100,
-            "border_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
           },
           "blocks": {}
         },
@@ -85,7 +84,7 @@
       "settings": {
         "content_direction": "column",
         "gap": 0,
-        "color_scheme": "scheme-2",
+        "color_scheme": "scheme-1",
         "padding-block-start": 40,
         "padding-block-end": 80
       }
