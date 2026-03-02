@@ -89,8 +89,8 @@
         "padding-block-end": 80
       }
     },
-    "blog-post-related-products": {
-      "type": "blog-post-related-products",
+    "article-related-products": {
+      "type": "article-related-products",
       "settings": {
         "heading": "Related products",
         "layout_type": "grid",
@@ -194,6 +194,6 @@
   },
   "order": [
     "section",
-    "blog-post-related-products"
+    "article-related-products"
   ]
 }

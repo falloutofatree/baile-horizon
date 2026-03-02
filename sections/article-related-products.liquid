@@ -24,7 +24,7 @@
 
 <div class="section-background color-{{ section.settings.color_scheme }}"></div>
 <div
-  data-testid="blog-post-related-products"
+  data-testid="article-related-products"
   class="
     section
     section--page-width
@@ -39,7 +39,7 @@
   "
 >
   {% if section.settings.heading != blank %}
-    <div class="blog-post-related-products__heading">
+    <div class="article-related-products__heading">
       <h2 class="h3">{{ section.settings.heading }}</h2>
     </div>
   {% endif %}
@@ -85,20 +85,20 @@
       settings: section.settings,
       slide_count: max_items,
       content_type: 'products',
-      test_id: 'blog-post-related-products-grid'
+      test_id: 'article-related-products-grid'
     %}
   {% endif %}
 </div>
 
 {% stylesheet %}
-  .blog-post-related-products__heading {
+  .article-related-products__heading {
     width: 100%;
   }
 {% endstylesheet %}
 
 {% schema %}
 {
-  "name": "Blog post related products",
+  "name": "Related products",
   "class": "section-wrapper",
   "enabled_on": {
     "templates": ["article"]
@@ -316,7 +316,7 @@
   ],
   "presets": [
     {
-      "name": "Blog post related products",
+      "name": "Related products",
       "category": "t:categories.products",
       "settings": {
         "heading": "Related products",
