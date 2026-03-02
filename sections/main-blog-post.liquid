@@ -1,6 +1,36 @@
 
 
 <div class="section-background color-{{ section.settings.color_scheme }}"></div>
+
+{%- comment -%} Blog post hero - full width with its own color scheme {%- endcomment -%}
+<div class="blog-post-hero-wrapper color-{{ section.settings.hero_color_scheme }}">
+  <div class="blog-post-hero-back blog-post-hero-back--mobile">
+    <a href="{{ blog.url }}" class="blog-post-back-link">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="m12 19-7-7 7-7"/></svg>
+      <span>Back to {{ blog.title }}</span>
+    </a>
+  </div>
+  <div class="blog-post-hero">
+    {%- if article.image -%}
+      <div class="blog-post-hero__media">
+        {%- content_for 'block', id: 'blog-post-image', type: '_blog-post-featured-image' %}
+      </div>
+    {%- endif -%}
+
+    <div class="blog-post-hero__content">
+      <div class="blog-post-hero-back blog-post-hero-back--desktop">
+        <a href="{{ blog.url }}" class="blog-post-back-link">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="m12 19-7-7 7-7"/></svg>
+          <span>Back to {{ blog.title }}</span>
+        </a>
+      </div>
+      {%- content_for 'block', id: 'blog-post-title', type: 'text' %}
+      {%- content_for 'block', id: 'blog-post-details', type: '_blog-post-info-text' %}
+    </div>
+  </div>
+</div>
+
+{%- comment -%} Blog post body content {%- endcomment -%}
 <div class="section color-{{ section.settings.color_scheme }}">
   <div
     class="
@@ -12,19 +42,6 @@
       {% render 'spacing-style', settings: section.settings %}
     "
   >
-    <div class="blog-post-hero">
-      {%- if article.image -%}
-        <div class="blog-post-hero__media">
-          {%- content_for 'block', id: 'blog-post-image', type: '_blog-post-featured-image' %}
-        </div>
-      {%- endif -%}
-
-      <div class="blog-post-hero__content">
-        {%- content_for 'block', id: 'blog-post-title', type: 'text' %}
-        {%- content_for 'block', id: 'blog-post-details', type: '_blog-post-info-text' %}
-      </div>
-    </div>
-
     {%- content_for 'block', id: 'blog-post-content', type: '_blog-post-content' %}
 
     {% comment %} Dynamic area for @app blocks only, at the bottom {% endcomment %}
@@ -72,17 +89,57 @@
     gap: var(--gap-3xl);
   }
 
+  /* Hero wrapper - full width with its own color scheme */
+  .blog-post-hero-wrapper {
+    width: 100%;
+  }
+
+  /* Back link - mobile (above hero) */
+  .blog-post-hero-back--mobile {
+    padding: var(--padding-sm) var(--page-margin);
+  }
+
+  .blog-post-hero-back--desktop {
+    display: none;
+  }
+
+  .blog-post-back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: var(--font-size--body-sm);
+    color: currentColor;
+    text-decoration: none;
+    opacity: 0.7;
+    transition: opacity var(--animation-speed) var(--animation-easing);
+  }
+
+  .blog-post-back-link:hover {
+    opacity: 1;
+  }
+
+  .blog-post-back-link svg {
+    flex-shrink: 0;
+  }
+
+  /* Hero grid */
   .blog-post-hero {
     display: grid;
     grid-template-columns: 1fr;
-    gap: var(--gap-xl);
     width: 100%;
   }
 
   @media screen and (min-width: 750px) {
+    .blog-post-hero-back--mobile {
+      display: none;
+    }
+
+    .blog-post-hero-back--desktop {
+      display: block;
+    }
+
     .blog-post-hero {
-      grid-template-columns: 7fr 5fr;
-      gap: var(--page-margin);
+      grid-template-columns: 1fr 1fr;
     }
   }
 
@@ -107,6 +164,13 @@
     flex-direction: column;
     justify-content: center;
     gap: var(--gap-md);
+    padding: var(--gap-xl) var(--page-margin);
+  }
+
+  @media screen and (min-width: 750px) {
+    .blog-post-hero__content {
+      padding: var(--gap-3xl) var(--gap-3xl);
+    }
   }
 
   .blog-post-comments-container {
@@ -192,6 +256,12 @@
       "step": 1,
       "unit": "px",
       "default": 12
+    },
+    {
+      "type": "color_scheme",
+      "id": "hero_color_scheme",
+      "label": "Hero color scheme",
+      "default": "scheme-1"
     },
     {
       "type": "color_scheme",
