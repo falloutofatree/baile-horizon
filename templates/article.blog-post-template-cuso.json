@@ -53,6 +53,7 @@
           "blocks": {
             "blog-post-back-link": {
               "type": "text",
+              "name": "Back link",
               "settings": {
                 "text": "<p><a href=\"{{ blog.url }}\">\u2190 Back to {{ blog.title }}</a></p>",
                 "width": "fit-content",
@@ -68,6 +69,7 @@
             },
             "hero-spacer": {
               "type": "spacer",
+              "name": "Spacer",
               "settings": {
                 "size": "percent",
                 "percent_size": 100,
@@ -76,6 +78,7 @@
             },
             "blog-post-title": {
               "type": "text",
+              "name": "Title",
               "settings": {
                 "text": "<h1>{{ article.title }}</h1>",
                 "width": "100%",
@@ -100,6 +103,7 @@
             },
             "blog-post-details": {
               "type": "_blog-post-info-text",
+              "name": "Details",
               "settings": {
                 "show_date": true,
                 "show_author": false,
