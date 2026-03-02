@@ -19,7 +19,7 @@
             "text": "<h1>{{ article.title }}</h1>",
             "width": "100%",
             "max_width": "normal",
-            "alignment": "center",
+            "alignment": "left",
             "type_preset": "h2",
             "font": "var(--font-primary--family)",
             "font_size": "",
@@ -46,7 +46,7 @@
             "show_date": true,
             "show_author": false,
             "type_preset": "",
-            "alignment": "center",
+            "alignment": "left",
             "show_alignment": true,
             "padding-block-start": 24,
             "padding-block-end": 0
@@ -54,11 +54,11 @@
           "blocks": {}
         },
         "blog-post-image": {
-          "type": "image",
+          "type": "_blog-post-featured-image",
           "name": "Featured image",
           "static": true,
           "settings": {
-            "image_ratio": "landscape",
+            "image_ratio": "adapt",
             "width": "fill",
             "custom_width": 100,
             "width_mobile": "fill",
