@@ -145,6 +145,24 @@ span.ai-product-accordion__title-ace1mmjirn3vhwhfwqaigenblock929ef7ekdgada {
   color: #5d5e4c;
 }
 
+.shopify-policy__container,
+shopify-policy__container {
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+.shopify-policy__title,
+shopify-policy__title {
+    padding-bottom: 32px;
+    font-size: 40px;
+    color: #5d5e4c;
+}
+
+summary.details__header {
+    font-family: "Americana", serif !important;
+    font-weight: 700 !important;
+}
+
 /* Collection filter & sort - pill button styling */
 @media screen and (min-width: 750px) {
   .facets--horizontal .facets__summary {
