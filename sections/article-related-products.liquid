@@ -98,7 +98,7 @@
 
 {% schema %}
 {
-  "name": "Related products",
+  "name": "Products in this post",
   "class": "section-wrapper",
   "enabled_on": {
     "templates": ["article"]
@@ -120,7 +120,7 @@
     },
     {
       "type": "paragraph",
-      "content": "Products are configured per blog post via article metafields (custom.related_products and custom.related_collection). Individual products take priority over the collection."
+      "content": "Configured via article metafields."
     },
     {
       "type": "header",
@@ -316,7 +316,7 @@
   ],
   "presets": [
     {
-      "name": "Related products",
+      "name": "Products in this post",
       "category": "t:categories.products",
       "settings": {
         "heading": "Related products",
