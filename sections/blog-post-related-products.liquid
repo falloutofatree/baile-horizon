@@ -2,18 +2,20 @@
 {% liquid
   assign max_items = 8
 
-  # Determine the product source: individual products take priority over collection
+  # Read products from article metafields (configured per blog post in Shopify content)
+  # Individual products take priority over collection
   assign has_individual_products = false
-  if section.settings.products != blank and section.settings.products.size > 0
+  assign related_products = article.metafields.custom.related_products.value
+  if related_products != blank and related_products.size > 0
     assign has_individual_products = true
   endif
 
   assign has_collection = false
-  if section.settings.collection != blank
+  assign related_collection = article.metafields.custom.related_collection.value
+  if related_collection != blank
     assign has_collection = true
   endif
 
-  # Only render the section if there are products to show
   assign should_render = false
   if has_individual_products or has_collection
     assign should_render = true
@@ -45,7 +47,7 @@
   {% if should_render %}
     {% capture list_items %}
       {% if has_individual_products %}
-        {% for product in section.settings.products limit: max_items %}
+        {% for product in related_products limit: max_items %}
           <div class="resource-list__item">
             {% # theme-check-disable UniqueStaticBlockId %}
               {% content_for 'block', type: '_product-card', id: 'static-product-card', closest.product: product %}
@@ -57,8 +59,8 @@
           {% endunless %}
         {% endfor %}
       {% elsif has_collection %}
-        {% paginate section.settings.collection.products by max_items %}
-          {% for product in section.settings.collection.products limit: max_items %}
+        {% paginate related_collection.products by max_items %}
+          {% for product in related_collection.products limit: max_items %}
             <div class="resource-list__item">
               {% # theme-check-disable UniqueStaticBlockId %}
                 {% content_for 'block', type: '_product-card', id: 'static-product-card', closest.product: product %}
@@ -117,23 +119,8 @@
       "default": "Related products"
     },
     {
-      "type": "header",
-      "content": "Products"
-    },
-    {
-      "type": "product_list",
-      "id": "products",
-      "label": "Products",
-      "limit": 8
-    },
-    {
-      "type": "collection",
-      "id": "collection",
-      "label": "Collection"
-    },
-    {
       "type": "paragraph",
-      "content": "Select individual products or a collection. Individual products take priority over the collection."
+      "content": "Products are configured per blog post via article metafields (custom.related_products and custom.related_collection). Individual products take priority over the collection."
     },
     {
       "type": "header",
