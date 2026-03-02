@@ -2,31 +2,24 @@
 
 <div class="section-background color-{{ section.settings.color_scheme }}"></div>
 
-{%- comment -%} Blog post hero - full width with its own color scheme {%- endcomment -%}
-<div class="blog-post-hero-wrapper color-{{ section.settings.hero_color_scheme }}">
-  <div class="blog-post-hero-back blog-post-hero-back--mobile">
-    <a href="{{ blog.url }}" class="blog-post-back-link">
-      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="m12 19-7-7 7-7"/></svg>
-      <span>Back to {{ blog.title }}</span>
-    </a>
-  </div>
-  <div class="blog-post-hero">
-    {%- if article.image -%}
-      <div class="blog-post-hero__media">
-        {%- content_for 'block', id: 'blog-post-image', type: '_blog-post-featured-image' %}
-      </div>
-    {%- endif -%}
+{%- comment -%} Mobile back link - shown above hero on small screens {%- endcomment -%}
+<div class="blog-post-hero-back blog-post-hero-back--mobile">
+  <a href="{{ blog.url }}" class="blog-post-back-link">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="m12 19-7-7 7-7"/></svg>
+    <span>Back to {{ blog.title }}</span>
+  </a>
+</div>
 
-    <div class="blog-post-hero__content">
-      <div class="blog-post-hero-back blog-post-hero-back--desktop">
-        <a href="{{ blog.url }}" class="blog-post-back-link">
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="m12 19-7-7 7-7"/></svg>
-          <span>Back to {{ blog.title }}</span>
-        </a>
-      </div>
-      {%- content_for 'block', id: 'blog-post-title', type: 'text' %}
-      {%- content_for 'block', id: 'blog-post-details', type: '_blog-post-info-text' %}
+{%- comment -%} Blog post hero - full width 50/50 grid {%- endcomment -%}
+<div class="blog-post-hero">
+  {%- if article.image -%}
+    <div class="blog-post-hero__media">
+      {%- content_for 'block', id: 'blog-post-image', type: '_blog-post-featured-image' %}
     </div>
+  {%- endif -%}
+
+  <div class="blog-post-hero__content">
+    {%- content_for 'block', id: 'hero-content-group', type: 'group' %}
   </div>
 </div>
 
@@ -89,18 +82,9 @@
     gap: var(--gap-3xl);
   }
 
-  /* Hero wrapper - full width with its own color scheme */
-  .blog-post-hero-wrapper {
-    width: 100%;
-  }
-
-  /* Back link - mobile (above hero) */
+  /* Mobile back link - above hero */
   .blog-post-hero-back--mobile {
     padding: var(--padding-sm) var(--page-margin);
-  }
-
-  .blog-post-hero-back--desktop {
-    display: none;
   }
 
   .blog-post-back-link {
@@ -134,12 +118,15 @@
       display: none;
     }
 
-    .blog-post-hero-back--desktop {
-      display: block;
-    }
-
     .blog-post-hero {
       grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  /* Hide the back-link and spacer inside the group on mobile (back link is section-level on mobile) */
+  @media screen and (max-width: 749px) {
+    .blog-post-hero__content .group-block-content > :nth-child(-n+2) {
+      display: none;
     }
   }
 
@@ -160,17 +147,12 @@
   }
 
   .blog-post-hero__content {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: var(--gap-md);
-    padding: var(--gap-xl) var(--page-margin);
+    width: 100%;
+    height: 100%;
   }
 
-  @media screen and (min-width: 750px) {
-    .blog-post-hero__content {
-      padding: var(--gap-3xl) var(--gap-3xl);
-    }
+  .blog-post-hero__content > .group-block {
+    height: 100%;
   }
 
   .blog-post-comments-container {
@@ -256,12 +238,6 @@
       "step": 1,
       "unit": "px",
       "default": 12
-    },
-    {
-      "type": "color_scheme",
-      "id": "hero_color_scheme",
-      "label": "Hero color scheme",
-      "default": "scheme-1"
     },
     {
       "type": "color_scheme",
