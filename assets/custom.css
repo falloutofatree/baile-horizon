@@ -235,4 +235,9 @@ summary.details__header {
   }
 }
 
+/* Widen product details content when limit-details is active */
+.product-information__grid--limit-details .product-details > .group-block {
+  max-width: var(--normal-content-width);
+}
+
 .rte img {width:auto}
