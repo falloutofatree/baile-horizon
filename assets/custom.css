@@ -236,3 +236,19 @@ summary.details__header {
 }
 
 .rte img {width:auto}
+
+/* Variant option/pill sizing - tighter than theme default */
+.variant-option {
+  --variant-option-padding-inline: var(--padding-xs);
+}
+
+.variant-option__button-label {
+  flex: 0 0 2.5em;
+  padding-block: var(--padding-2xs);
+  padding-inline: var(--padding-sm);
+  min-height: 2.5em;
+
+  @media screen and (min-width: 750px) {
+    padding: var(--padding-2xs) var(--variant-option-padding-inline);
+  }
+}
