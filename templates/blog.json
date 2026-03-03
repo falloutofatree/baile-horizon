@@ -131,6 +131,7 @@
               "type": "_blog-post-image",
               "static": true,
               "settings": {
+                "image_ratio": "square",
                 "border": "none",
                 "border_width": 1,
                 "border_opacity": 100,
