@@ -86,6 +86,7 @@
       "settings": {
         "content_direction": "column",
         "gap": 32,
+        "hero_color_scheme": "scheme-caa1ae44-93bf-47ef-ab06-4c3def4f0ed9",
         "color_scheme": "",
         "padding-block-start": 40,
         "padding-block-end": 80
