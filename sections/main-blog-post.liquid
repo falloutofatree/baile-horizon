@@ -159,13 +159,20 @@
   .blog-post-hero__content {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
     padding: var(--gap-xl) var(--page-margin);
   }
 
   @media screen and (min-width: 750px) {
     .blog-post-hero__content {
+      position: relative;
       padding: var(--gap-xl);
+    }
+
+    .blog-post-hero-back--desktop {
+      position: absolute;
+      top: var(--gap-xl);
+      left: var(--gap-xl);
     }
   }
 
