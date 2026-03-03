@@ -2198,7 +2198,7 @@ deferred-media[class] :is(.deferred-media__poster-button img, .deferred-media__p
 .variant-option {
   --options-border-radius: var(--variant-picker-button-radius);
   --options-border-width: var(--variant-picker-button-border-width);
-  --variant-option-padding-inline: var(--padding-xs);
+  --variant-option-padding-inline: var(--padding-md);
 }
 
 .variant-option + .variant-option {
@@ -2287,16 +2287,16 @@ deferred-media[class] :is(.deferred-media__poster-button img, .deferred-media__p
 
   cursor: pointer;
   display: flex;
-  flex: 0 0 2.5em;
+  flex: 0 0 3.25em;
   align-items: center;
   position: relative;
-  padding-block: var(--padding-2xs);
-  padding-inline: var(--padding-sm);
+  padding-block: var(--padding-sm);
+  padding-inline: var(--padding-lg);
   border: var(--options-border-width) solid var(--color-variant-border);
   border-radius: var(--options-border-radius);
   overflow: clip;
   justify-content: center;
-  min-height: 2.5em;
+  min-height: 3.25em;
   min-width: fit-content;
   white-space: nowrap;
   background-color: var(--color-variant-background);
@@ -2391,7 +2391,7 @@ deferred-media[class] :is(.deferred-media__poster-button img, .deferred-media__p
   }
 
   @media screen and (min-width: 750px) {
-    padding: var(--padding-2xs) var(--variant-option-padding-inline);
+    padding: var(--padding-xs) var(--variant-option-padding-inline);
   }
 }
 
@@ -2902,7 +2902,7 @@ product-price.text-block:is(.h1, .h2, .h3, .h4, .h5, .h6) > *:not(.tax-note) {
 .rte,
 .shopify-policy__title {
   :is(h1, h2, h3, h4, h5, h6) {
-    margin-block: clamp(1.5rem, 1em * 3.3, 2.5rem) clamp(1rem, 1em * 0.25, 2rem);
+    margin-block: clamp(1.5rem, 1em * 3.3, 2.5rem) var(--font-heading--spacing);
   }
 
   :first-child:is(p, h1, h2, h3, h4, h5, h6),
@@ -4301,59 +4301,8 @@ slideshow-arrows .slideshow-control.slideshow-control--style-none {
   display: none;
 }
 
-/* Sidebar heading layout: heading/link on the left, carousel on the right (desktop only) */
-@media screen and (min-width: 750px) {
-  .section-resource-list--sidebar-heading {
-    grid-template-columns: var(--util-page-margin-offset) auto 1fr;
-    align-items: start;
-  }
-
-  .section-resource-list--sidebar-heading > .section-resource-list__content {
-    grid-column: 2;
-    grid-row: 1;
-    width: auto;
-    max-width: clamp(180px, 18vw, 320px);
-    padding-inline-end: var(--gap);
-    padding-block-start: var(--gap);
-  }
-
-  /* Force heading content to stack vertically in narrow sidebar (flex-direction directly, since --flex-direction is set inline) */
-  .section-resource-list--sidebar-heading > .section-resource-list__content .layout-panel-flex {
-    flex-direction: column;
-    align-items: var(--horizontal-alignment);
-    justify-content: var(--vertical-alignment);
-  }
-
-  .section-resource-list--sidebar-heading > .resource-list,
-  .section-resource-list--sidebar-heading > .resource-list.force-full-width {
-    grid-column: 3;
-    grid-row: 1;
-  }
-
-  /* Remove start gutter since sidebar fills that space */
-  .section-resource-list--sidebar-heading slideshow-slides[gutters] {
-    padding-inline-start: 0;
-    scroll-padding-inline-start: 0;
-  }
-
-  .section-resource-list--sidebar-heading .resource-list__carousel slideshow-arrows {
-    padding-inline-start: 0;
-  }
-
-  /* Lower the desktop slide-width threshold so narrower carousel still uses column-based sizing */
-  @container resource-list-carousel (min-width: 500px) {
-    .section-resource-list--sidebar-heading .resource-list__slide {
-      --section-slide-width: calc(
-        (100% - (var(--resource-list-column-gap) * (var(--column-count) - 1)) - var(--peek-next-slide-size)) /
-          var(--column-count)
-      );
-      --slide-width: var(--section-slide-width);
-    }
-  }
-}
-
-.section-resource-list.section--full-width product-card-link > .group-block,
-.section-carousel.section--full-width product-card-link > .group-block {
+:where(.section-resource-list.section--full-width) product-card[data-product-transition] > .group-block,
+:where(.section-carousel.section--full-width) product-card[data-product-transition] > .group-block {
   @media screen and (max-width: 749px) {
     padding-inline: max(var(--padding-xs), var(--padding-inline-start))
       max(var(--padding-xs), var(--padding-inline-end));
