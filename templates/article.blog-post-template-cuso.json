@@ -91,21 +91,6 @@
     },
     "article-related-products": {
       "type": "article-related-products",
-      "settings": {
-        "heading": "Related products",
-        "layout_type": "grid",
-        "carousel_on_mobile": false,
-        "columns": 4,
-        "mobile_columns": "2",
-        "columns_gap": 16,
-        "rows_gap": 24,
-        "icons_style": "arrow",
-        "icons_shape": "none",
-        "gap": 28,
-        "color_scheme": "scheme-1",
-        "padding-block-start": 48,
-        "padding-block-end": 48
-      },
       "blocks": {
         "static-product-card": {
           "type": "_product-card",
@@ -187,8 +172,27 @@
               }
             }
           },
-          "block_order": ["product-card-gallery", "product_title", "price"]
+          "block_order": [
+            "product-card-gallery",
+            "product_title",
+            "price"
+          ]
         }
+      },
+      "settings": {
+        "heading": "Related products",
+        "layout_type": "grid",
+        "carousel_on_mobile": false,
+        "columns": 4,
+        "mobile_columns": "2",
+        "columns_gap": 16,
+        "rows_gap": 24,
+        "icons_style": "arrow",
+        "icons_shape": "none",
+        "gap": 28,
+        "color_scheme": "scheme-1",
+        "padding-block-start": 48,
+        "padding-block-end": 48
       }
     }
   },

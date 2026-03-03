@@ -137,7 +137,6 @@
       ],
       "name": "t:names.hero",
       "settings": {
-        "toggle_decorative_border": false,
         "media_type_1": "image",
         "image_1": "shopify://shop_images/Untitled_design_56.png",
         "media_type_2": "image",
@@ -158,8 +157,6 @@
         "section_width": "page-width",
         "section_height": "auto",
         "section_height_custom": 50,
-        "aspect_ratio": "3 / 1",
-        "aspect_ratio_mobile": "3 / 4",
         "color_scheme": "scheme-5",
         "toggle_overlay": true,
         "overlay_color": "#00000030",
