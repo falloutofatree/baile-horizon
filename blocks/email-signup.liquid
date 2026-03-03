@@ -12,7 +12,7 @@
     </div>
   {% endif %}
   {% assign form_id = block.id | prepend: 'EmailSignup-' %}
-  {%- form 'customer', class: 'email-signup__form spacing-style' %}
+{%- form 'customer', id: form_id, class: 'email-signup__form spacing-style' %}
     <input
       name="contact[id]"
       type="hidden"
@@ -90,11 +90,12 @@
     {%- endif -%}
 
     {%- if form.posted_successfully? and form.id == form_id -%}
-      <div
-        id="Email-signup__message-success-{{ block.id }}"
-        class="email-signup__message"
-        tabindex="-1"
-      >
+    <div
+  id="Email-signup__message-success-{{ block.id }}"
+  class="email-signup__message"
+  tabindex="-1"
+  autofocus
+>
         <span class="svg-wrapper icon-success">
           {{ 'icon-checkmark.svg' | inline_asset_content }}
         </span>
