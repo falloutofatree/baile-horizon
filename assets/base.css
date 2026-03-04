@@ -1550,6 +1550,7 @@ summary {
   cursor: pointer;
   list-style: none;
   padding-block: var(--padding-sm);
+  color: inherit;
 }
 
 summary:hover {
