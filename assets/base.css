@@ -1550,7 +1550,6 @@ summary {
   cursor: pointer;
   list-style: none;
   padding-block: var(--padding-sm);
-  color: inherit;
 }
 
 summary:hover {
@@ -1562,6 +1561,7 @@ summary .svg-wrapper {
   height: var(--icon-size-xs);
   width: var(--icon-size-xs);
   transition: transform var(--animation-speed) var(--animation-easing);
+  color: #000;
 }
 
 /* Shared plus/minus icon animations */
