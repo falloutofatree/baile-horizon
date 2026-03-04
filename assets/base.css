@@ -1563,10 +1563,6 @@ summary .svg-wrapper {
   transition: transform var(--animation-speed) var(--animation-easing);
 }
 
-summary .svg-wrapper svg path {
-  stroke: #000;
-}
-
 /* Shared plus/minus icon animations */
 summary .icon-plus :is(.horizontal, .vertical),
 .show-more__button .icon-plus :is(.horizontal, .vertical) {
