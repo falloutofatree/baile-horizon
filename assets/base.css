@@ -1561,7 +1561,10 @@ summary .svg-wrapper {
   height: var(--icon-size-xs);
   width: var(--icon-size-xs);
   transition: transform var(--animation-speed) var(--animation-easing);
-  color: #000;
+}
+
+summary .svg-wrapper svg path {
+  stroke: #000;
 }
 
 /* Shared plus/minus icon animations */
