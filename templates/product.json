@@ -403,135 +403,13 @@
               },
               "blocks": {}
             },
-            "accordion_prdAcc": {
-              "type": "accordion",
+            "cl_product_accordion": {
+              "type": "custom-liquid",
+              "name": "Product Accordion",
               "settings": {
-                "icon": "caret",
-                "dividers": true,
-                "type_preset": "h6",
-                "inherit_color_scheme": true,
-                "color_scheme": "scheme-1",
-                "border": "none",
-                "border_width": 1,
-                "border_opacity": 100,
-                "border_radius": 0,
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
+                "custom_liquid": "<div class='accordion accordion--caret' style='width:100%'>\n{% if product.description != blank %}\n<accordion-custom open-by-default-on-desktop open-by-default-on-mobile>\n<details class='details' open>\n<summary class='details__header'>Details<span class='svg-wrapper icon-caret icon-animated'>{{ 'icon-caret.svg' | inline_asset_content }}</span></summary>\n<div class='details-content'>{{ product.description }}</div>\n</details>\n</accordion-custom>\n{% endif %}\n{% assign mat = product.metafields.custom['product-materials'] %}\n{% if mat != blank %}\n<accordion-custom>\n<details class='details'>\n<summary class='details__header'>Materials<span class='svg-wrapper icon-caret icon-animated'>{{ 'icon-caret.svg' | inline_asset_content }}</span></summary>\n<div class='details-content'><p>{{ mat | metafield_tag }}</p></div>\n</details>\n</accordion-custom>\n{% endif %}\n{% if product.metafields.custom.ingredients != blank %}\n<accordion-custom>\n<details class='details'>\n<summary class='details__header'>Ingredients<span class='svg-wrapper icon-caret icon-animated'>{{ 'icon-caret.svg' | inline_asset_content }}</span></summary>\n<div class='details-content'><p>{{ product.metafields.custom.ingredients | metafield_tag }}</p></div>\n</details>\n</accordion-custom>\n{% endif %}\n{% if product.metafields.custom.about_the_maker != blank %}\n<accordion-custom>\n<details class='details'>\n<summary class='details__header'>About the Maker<span class='svg-wrapper icon-caret icon-animated'>{{ 'icon-caret.svg' | inline_asset_content }}</span></summary>\n<div class='details-content'><p>{{ product.metafields.custom.about_the_maker | metafield_tag }}</p></div>\n</details>\n</accordion-custom>\n{% endif %}\n{% if product.metafields.custom.why_we_love_it != blank %}\n<accordion-custom>\n<details class='details'>\n<summary class='details__header'>Why We Love It<span class='svg-wrapper icon-caret icon-animated'>{{ 'icon-caret.svg' | inline_asset_content }}</span></summary>\n<div class='details-content'><p>{{ product.metafields.custom.why_we_love_it | metafield_tag }}</p></div>\n</details>\n</accordion-custom>\n{% endif %}\n<accordion-custom>\n<details class='details'>\n<summary class='details__header'>Shipping<span class='svg-wrapper icon-caret icon-animated'>{{ 'icon-caret.svg' | inline_asset_content }}</span></summary>\n<div class='details-content'><p>Enjoy free shipping on all orders within the U.S. Please note, we do not accept returns, but clothing items are eligible for exchange.</p></div>\n</details>\n</accordion-custom>\n</div>"
               },
-              "blocks": {
-                "row_details": {
-                  "type": "_accordion-row",
-                  "settings": {
-                    "heading": "Details",
-                    "open_by_default": true,
-                    "icon": "none",
-                    "width": 20
-                  },
-                  "blocks": {
-                    "cl_details": {
-                      "type": "custom-liquid",
-                      "settings": {
-                        "custom_liquid": "{{ product.description }}"
-                      }
-                    }
-                  },
-                  "block_order": ["cl_details"]
-                },
-                "row_materials": {
-                  "type": "_accordion-row",
-                  "settings": {
-                    "heading": "Materials",
-                    "open_by_default": false,
-                    "icon": "none",
-                    "width": 20
-                  },
-                  "blocks": {
-                    "cl_materials": {
-                      "type": "custom-liquid",
-                      "settings": {
-                        "custom_liquid": "<p>{{ product.metafields.custom[\"product-materials\"] | metafield_tag }}</p>"
-                      }
-                    }
-                  },
-                  "block_order": ["cl_materials"]
-                },
-                "row_ingredients": {
-                  "type": "_accordion-row",
-                  "settings": {
-                    "heading": "Ingredients",
-                    "open_by_default": false,
-                    "icon": "none",
-                    "width": 20
-                  },
-                  "blocks": {
-                    "cl_ingredients": {
-                      "type": "custom-liquid",
-                      "settings": {
-                        "custom_liquid": "<p>{{ product.metafields.custom.ingredients | metafield_tag }}</p>"
-                      }
-                    }
-                  },
-                  "block_order": ["cl_ingredients"]
-                },
-                "row_about_maker": {
-                  "type": "_accordion-row",
-                  "settings": {
-                    "heading": "About the Maker",
-                    "open_by_default": false,
-                    "icon": "none",
-                    "width": 20
-                  },
-                  "blocks": {
-                    "cl_about_maker": {
-                      "type": "custom-liquid",
-                      "settings": {
-                        "custom_liquid": "<p>{{ product.metafields.custom.about_the_maker | metafield_tag }}</p>"
-                      }
-                    }
-                  },
-                  "block_order": ["cl_about_maker"]
-                },
-                "row_why_love": {
-                  "type": "_accordion-row",
-                  "settings": {
-                    "heading": "Why We Love It",
-                    "open_by_default": false,
-                    "icon": "none",
-                    "width": 20
-                  },
-                  "blocks": {
-                    "cl_why_love": {
-                      "type": "custom-liquid",
-                      "settings": {
-                        "custom_liquid": "<p>{{ product.metafields.custom.why_we_love_it | metafield_tag }}</p>"
-                      }
-                    }
-                  },
-                  "block_order": ["cl_why_love"]
-                },
-                "row_shipping": {
-                  "type": "_accordion-row",
-                  "settings": {
-                    "heading": "Shipping",
-                    "open_by_default": false,
-                    "icon": "none",
-                    "width": 20
-                  },
-                  "blocks": {
-                    "txt_shipping": {
-                      "type": "text",
-                      "settings": {
-                        "text": "<p>Enjoy free shipping on all orders within the U.S. Please note, we do not accept returns, but clothing items are eligible for exchange.</p>",
-                        "width": "100%"
-                      }
-                    }
-                  },
-                  "block_order": ["txt_shipping"]
-                }
-              },
-              "block_order": ["row_details", "row_materials", "row_ingredients", "row_about_maker", "row_why_love", "row_shipping"]
+              "blocks": {}
             }
           },
           "block_order": [
@@ -540,7 +418,7 @@
             "variant_picker_yAyXKx",
             "buy_buttons_HEUbMQ",
             "custom_liquid_qLWLdy",
-            "accordion_prdAcc"
+            "cl_product_accordion"
           ]
         }
       },
