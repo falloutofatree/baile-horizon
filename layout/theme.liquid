@@ -126,32 +126,5 @@
     {% if settings.quick_add or settings.mobile_quick_add %}
       {% render 'quick-add-modal' %}
     {% endif %}
-
-    <script>
-      // Fix iOS Safari applying -apple-system-blue to SVGs inside summary elements
-      (function fixSummaryIconColor() {
-        function fix(root) {
-          root.querySelectorAll('summary svg path, summary svg line').forEach(function(el) {
-            if (el.getAttribute('stroke') === 'currentColor') {
-              el.setAttribute('stroke', '#000');
-            }
-            if (el.getAttribute('fill') === 'currentColor') {
-              el.setAttribute('fill', '#000');
-            }
-          });
-          // Also fix inside shadow roots
-          root.querySelectorAll('*').forEach(function(el) {
-            if (el.shadowRoot) fix(el.shadowRoot);
-          });
-        }
-        if (document.readyState === 'loading') {
-          document.addEventListener('DOMContentLoaded', function() { fix(document); });
-        } else {
-          fix(document);
-        }
-        // Catch dynamically rendered content
-        new MutationObserver(function() { fix(document); }).observe(document.body, { childList: true, subtree: true });
-      })();
-    </script>
   </body>
 </html>
