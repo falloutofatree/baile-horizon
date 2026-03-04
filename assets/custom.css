@@ -163,6 +163,12 @@ summary.details__header {
     font-weight: 700 !important;
 }
 
+/* Fix iOS 15+ Safari applying -apple-system-blue to summary elements */
+summary,
+summary svg {
+    color: #000 !important;
+}
+
 /* Collection filter & sort - pill button styling */
 @media screen and (min-width: 750px) {
   .facets--horizontal .facets__summary {
