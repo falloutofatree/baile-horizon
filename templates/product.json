@@ -403,17 +403,135 @@
               },
               "blocks": {}
             },
-            "ai_gen_block_929ef7e_kDGADa": {
-              "type": "ai_gen_block_929ef7e",
+            "accordion_prdAcc": {
+              "type": "accordion",
               "settings": {
-                "panel_details": "{{ closest.product.description }}",
-                "panel_materials": "<p>{{ closest.product.metafields.custom[\"product-materials\"] | metafield_tag }}</p>",
-                "panel_ingredients": "<p>{{ closest.product.metafields.custom.ingredients | metafield_tag }}</p>",
-                "panel_about_maker": "<p>{{ closest.product.metafields.custom.about_the_maker | metafield_tag }}</p>",
-                "panel_why_love": "<p>{{ closest.product.metafields.custom.why_we_love_it | metafield_tag }}</p>",
-                "panel_shipping": "<p>Enjoy free shipping on all orders within the U.S. Please note, we do not accept returns, but clothing items are eligible for exchange.</p>"
+                "icon": "caret",
+                "dividers": true,
+                "type_preset": "h6",
+                "inherit_color_scheme": true,
+                "color_scheme": "scheme-1",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
               },
-              "blocks": {}
+              "blocks": {
+                "row_details": {
+                  "type": "_accordion-row",
+                  "settings": {
+                    "heading": "Details",
+                    "open_by_default": true,
+                    "icon": "none",
+                    "width": 20
+                  },
+                  "blocks": {
+                    "cl_details": {
+                      "type": "custom-liquid",
+                      "settings": {
+                        "custom_liquid": "{{ product.description }}"
+                      }
+                    }
+                  },
+                  "block_order": ["cl_details"]
+                },
+                "row_materials": {
+                  "type": "_accordion-row",
+                  "settings": {
+                    "heading": "Materials",
+                    "open_by_default": false,
+                    "icon": "none",
+                    "width": 20
+                  },
+                  "blocks": {
+                    "cl_materials": {
+                      "type": "custom-liquid",
+                      "settings": {
+                        "custom_liquid": "<p>{{ product.metafields.custom[\"product-materials\"] | metafield_tag }}</p>"
+                      }
+                    }
+                  },
+                  "block_order": ["cl_materials"]
+                },
+                "row_ingredients": {
+                  "type": "_accordion-row",
+                  "settings": {
+                    "heading": "Ingredients",
+                    "open_by_default": false,
+                    "icon": "none",
+                    "width": 20
+                  },
+                  "blocks": {
+                    "cl_ingredients": {
+                      "type": "custom-liquid",
+                      "settings": {
+                        "custom_liquid": "<p>{{ product.metafields.custom.ingredients | metafield_tag }}</p>"
+                      }
+                    }
+                  },
+                  "block_order": ["cl_ingredients"]
+                },
+                "row_about_maker": {
+                  "type": "_accordion-row",
+                  "settings": {
+                    "heading": "About the Maker",
+                    "open_by_default": false,
+                    "icon": "none",
+                    "width": 20
+                  },
+                  "blocks": {
+                    "cl_about_maker": {
+                      "type": "custom-liquid",
+                      "settings": {
+                        "custom_liquid": "<p>{{ product.metafields.custom.about_the_maker | metafield_tag }}</p>"
+                      }
+                    }
+                  },
+                  "block_order": ["cl_about_maker"]
+                },
+                "row_why_love": {
+                  "type": "_accordion-row",
+                  "settings": {
+                    "heading": "Why We Love It",
+                    "open_by_default": false,
+                    "icon": "none",
+                    "width": 20
+                  },
+                  "blocks": {
+                    "cl_why_love": {
+                      "type": "custom-liquid",
+                      "settings": {
+                        "custom_liquid": "<p>{{ product.metafields.custom.why_we_love_it | metafield_tag }}</p>"
+                      }
+                    }
+                  },
+                  "block_order": ["cl_why_love"]
+                },
+                "row_shipping": {
+                  "type": "_accordion-row",
+                  "settings": {
+                    "heading": "Shipping",
+                    "open_by_default": false,
+                    "icon": "none",
+                    "width": 20
+                  },
+                  "blocks": {
+                    "txt_shipping": {
+                      "type": "text",
+                      "settings": {
+                        "text": "<p>Enjoy free shipping on all orders within the U.S. Please note, we do not accept returns, but clothing items are eligible for exchange.</p>",
+                        "width": "100%"
+                      }
+                    }
+                  },
+                  "block_order": ["txt_shipping"]
+                }
+              },
+              "block_order": ["row_details", "row_materials", "row_ingredients", "row_about_maker", "row_why_love", "row_shipping"]
             }
           },
           "block_order": [
@@ -422,7 +540,7 @@
             "variant_picker_yAyXKx",
             "buy_buttons_HEUbMQ",
             "custom_liquid_qLWLdy",
-            "ai_gen_block_929ef7e_kDGADa"
+            "accordion_prdAcc"
           ]
         }
       },
