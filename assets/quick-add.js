@@ -23,7 +23,16 @@ export class QuickAddComponent extends Component {
     if (!productLink?.href) return '';
 
     const url = new URL(productLink.href);
-    url.searchParams.delete('variant');
+
+    if (url.searchParams.has('variant')) {
+      return url.toString();
+    }
+
+    const selectedVariantId = this.#getSelectedVariantId();
+    if (selectedVariantId) {
+      url.searchParams.set('variant', selectedVariantId);
+    }
+
     return url.toString();
   }
 
