@@ -91,10 +91,12 @@ export default class VariantPicker extends Component {
 
     const variantId = selectedOption.dataset.variantId || null;
 
-    if (variantId && isOnProductPage) {
-      url.searchParams.set('variant', variantId);
-    } else {
-      url.searchParams.delete('variant');
+    if (isOnProductPage) {
+      if (variantId) {
+        url.searchParams.set('variant', variantId);
+      } else {
+        url.searchParams.delete('variant');
+      }
     }
 
     // Change the path if the option is connected to another product via combined listing.
