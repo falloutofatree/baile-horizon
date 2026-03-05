@@ -752,7 +752,7 @@
           "name": "t:names.button",
           "settings": {
             "label": "Shop Now",
-            "link": "shopify://collections",
+            "link": "shopify://collections/tread-well",
             "open_in_new_tab": false,
             "style_class": "button",
             "width": "fit-content",
