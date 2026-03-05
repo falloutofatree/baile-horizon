@@ -91,7 +91,9 @@ export default class VariantPicker extends Component {
 
     const variantId = selectedOption.dataset.variantId || null;
 
-    if (isOnProductPage) {
+    if (variantId && isOnProductPage) {
+      url.searchParams.set('variant', variantId);
+    } else {
       url.searchParams.delete('variant');
     }
 
