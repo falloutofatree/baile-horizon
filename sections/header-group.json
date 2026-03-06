@@ -17,7 +17,7 @@
         "announcement_BxgCk9": {
           "type": "_announcement",
           "settings": {
-            "text": "Free Shipping on Every Order",
+            "text": "Free Shipping on Every Order Over $95",
             "link": "",
             "font": "var(--font-accent--family)",
             "font_size": "0.875rem",
