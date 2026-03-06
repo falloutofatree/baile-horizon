@@ -96,6 +96,77 @@
         "padding-block-end": 72
       }
     },
+    "trust_badges_section": {
+      "type": "_blocks",
+      "blocks": {
+        "trust_badge_1": {
+          "type": "custom-liquid",
+          "name": "Trust Badge - Shipping",
+          "settings": {
+            "custom_liquid": "<div class=\"trust-badge\"><span class=\"trust-badge__icon\">{{ 'icon-truck.svg' | inline_asset_content }}</span><p class=\"trust-badge__text\"><strong>Free Shipping</strong><br/>On every order</p></div>"
+          },
+          "blocks": {}
+        },
+        "trust_badge_2": {
+          "type": "custom-liquid",
+          "name": "Trust Badge - Natural",
+          "settings": {
+            "custom_liquid": "<div class=\"trust-badge\"><span class=\"trust-badge__icon\">{{ 'icon-leaf.svg' | inline_asset_content }}</span><p class=\"trust-badge__text\"><strong>All Natural</strong><br/>Curated with conscience</p></div>"
+          },
+          "blocks": {}
+        },
+        "trust_badge_3": {
+          "type": "custom-liquid",
+          "name": "Trust Badge - Handpicked",
+          "settings": {
+            "custom_liquid": "<div class=\"trust-badge\"><span class=\"trust-badge__icon\">{{ 'icon-heart.svg' | inline_asset_content }}</span><p class=\"trust-badge__text\"><strong>Hand-Picked</strong><br/>By discerning eyes</p></div>"
+          },
+          "blocks": {}
+        },
+        "trust_badge_4": {
+          "type": "custom-liquid",
+          "name": "Trust Badge - Secure",
+          "settings": {
+            "custom_liquid": "<div class=\"trust-badge\"><span class=\"trust-badge__icon\">{{ 'icon-lock.svg' | inline_asset_content }}</span><p class=\"trust-badge__text\"><strong>Secure Checkout</strong><br/>Shop with confidence</p></div>"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "trust_badge_1",
+        "trust_badge_2",
+        "trust_badge_3",
+        "trust_badge_4"
+      ],
+      "name": "Trust Badges",
+      "settings": {
+        "content_direction": "row",
+        "vertical_on_mobile": false,
+        "horizontal_alignment": "space-around",
+        "vertical_alignment": "center",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "center",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 24,
+        "section_width": "page-width",
+        "section_height": "",
+        "section_height_custom": 50,
+        "color_scheme": "scheme-2",
+        "background_media": "none",
+        "video_position": "cover",
+        "background_image_position": "cover",
+        "border": "none",
+        "border_width": 1,
+        "border_opacity": 100,
+        "border_radius": 0,
+        "toggle_overlay": false,
+        "overlay_color": "#00000026",
+        "overlay_style": "solid",
+        "gradient_direction": "to top",
+        "padding-block-start": 32,
+        "padding-block-end": 32
+      }
+    },
     "product_list_fa6P9H": {
       "type": "product-list",
       "blocks": {
@@ -162,7 +233,6 @@
             "product_list_button_MWeP9V": {
               "type": "_product-list-button",
               "name": "t:names.product_list_button",
-              "disabled": true,
               "settings": {
                 "label": "View all",
                 "open_in_new_tab": false,
@@ -1893,7 +1963,6 @@
             "blog-post-description": {
               "type": "_blog-post-description",
               "name": "t:names.excerpt",
-              "disabled": true,
               "static": true,
               "settings": {
                 "type_preset": "rte",
@@ -2126,6 +2195,7 @@
   },
   "order": [
     "hero_jVaWmY",
+    "trust_badges_section",
     "product_list_fa6P9H",
     "section_4m8xGr",
     "collection_list_tkdc8G",

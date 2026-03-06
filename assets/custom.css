@@ -237,3 +237,62 @@ summary.details__header {
 }
 
 .rte img {width:auto}
+
+/* Trust badges section */
+.trust-badge {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-align: left;
+}
+
+.trust-badge__icon {
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.trust-badge__icon .svg-wrapper,
+.trust-badge__icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+.trust-badge__text {
+  margin: 0;
+  font-size: 0.85rem;
+  line-height: 1.4;
+}
+
+@media screen and (max-width: 749px) {
+  .trust-badge {
+    flex-direction: column;
+    text-align: center;
+    gap: 6px;
+  }
+
+  .trust-badge__text br {
+    display: none;
+  }
+}
+
+/* Improve add-to-cart button prominence */
+.product-form__submit.button {
+  min-height: 52px;
+  font-size: 1.05rem;
+  letter-spacing: 0.04em;
+}
+
+/* Sale price emphasis */
+.price--on-sale .price__sale .price-item--sale {
+  font-weight: 700;
+}
+
+/* Improve cart checkout button visibility */
+.cart-summary .button--primary {
+  min-height: 52px;
+  font-size: 1.05rem;
+}
