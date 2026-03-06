@@ -262,14 +262,135 @@
 {% endcapture %}
 
 <script type="application/ld+json">
+  {%- liquid
+    if shop.metafields.custom.org_type != blank
+      assign org_type = shop.metafields.custom.org_type
+    else
+      assign org_type = 'Store'
+    endif
+
+    if shop.metafields.custom.org_name != blank
+      assign org_name = shop.metafields.custom.org_name
+    else
+      assign org_name = shop.name
+    endif
+
+    if shop.metafields.custom.org_address1 != blank
+      assign org_address1 = shop.metafields.custom.org_address1
+    else
+      assign org_address1 = shop.address.street
+    endif
+
+    if shop.metafields.custom.org_address2 != blank
+      assign org_address2 = shop.metafields.custom.org_address2
+    else
+      assign org_address2 = blank
+    endif
+
+    if org_address2 != blank
+      assign org_street = org_address1 | append: ', ' | append: org_address2
+    else
+      assign org_street = org_address1
+    endif
+
+    if shop.metafields.custom.org_city != blank
+      assign org_city = shop.metafields.custom.org_city
+    else
+      assign org_city = shop.address.city
+    endif
+
+    if shop.metafields.custom.org_province != blank
+      assign org_province = shop.metafields.custom.org_province
+    else
+      assign org_province = shop.address.province_code
+    endif
+
+    if shop.metafields.custom.org_zip != blank
+      assign org_zip = shop.metafields.custom.org_zip
+    else
+      assign org_zip = shop.address.zip
+    endif
+
+    if shop.metafields.custom.org_country != blank
+      assign org_country = shop.metafields.custom.org_country
+    else
+      assign org_country = shop.address.country_code
+    endif
+
+    if shop.metafields.custom.org_phone != blank
+      assign org_phone = shop.metafields.custom.org_phone
+    elsif shop.phone != blank
+      assign org_phone = shop.phone | prepend: "+1"
+    else
+      assign org_phone = blank
+    endif
+
+    if shop.metafields.custom.org_email != blank
+      assign org_email = shop.metafields.custom.org_email
+    else
+      assign org_email = shop.email
+    endif
+  -%}
   {
     "@context": "http://schema.org",
-    "@type": "Organization",
-    "name": {{ shop.name | json }},
+    "@type": ["Organization", {{ org_type | json }}],
+    "name": {{ org_name | json }},
     {% if settings.logo %}
       "logo": {{ settings.logo | image_url: width: 500 | prepend: "https:" | json }},
     {% endif %}
-    "url": {{ request.origin | append: page.url | json }}
+    "url": {{ request.origin | append: page.url | json }},
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": {{ org_street | json }},
+      "addressLocality": {{ org_city | json }},
+      "addressRegion": {{ org_province | json }},
+      "postalCode": {{ org_zip | json }},
+      "addressCountry": {{ org_country | json }}
+    }
+    {%- if org_phone != blank %},
+      "telephone": {{ org_phone | json }}
+    {%- endif -%}
+    {%- if org_email != blank %},
+      "email": {{ org_email | json }}
+    {%- endif -%}
+    {%- liquid
+      assign social_links = ''
+      assign social_settings = 'social_instagram_link,social_tiktok_link,social_pinterest_link,social_facebook_link,social_twitter_link,social_youtube_link,social_snapchat_link,social_tumblr_link' | split: ','
+      for social in social_settings
+        assign link = settings[social]
+        if link != blank
+          if social_links != ''
+            assign social_links = social_links | append: ','
+          endif
+          assign social_links = social_links | append: link
+        endif
+      endfor
+    -%}
+    {%- if social_links != '' %},
+      "sameAs": [
+        {%- assign links_array = social_links | split: ',' -%}
+        {%- for link in links_array -%}
+          {{ link | json }}{% unless forloop.last %},{% endunless %}
+        {%- endfor -%}
+      ]
+    {%- endif %}
+  }
+</script>
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": {{ org_name | json }},
+    "url": {{ request.origin | json }},
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": {
+        "@type": "EntryPoint",
+        "urlTemplate": "{{ request.origin }}/search?q={% raw %}{search_term_string}{% endraw %}"
+      },
+      "query-input": "required name=search_term_string"
+    }
   }
 </script>
 
