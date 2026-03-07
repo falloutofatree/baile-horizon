@@ -45,7 +45,7 @@
 }
 
 /* Align product cards to bottom of grid */
-.resource-list--grid {
+.resource-list--grid, .product-grid {
   align-items: baseline;
 }
 
