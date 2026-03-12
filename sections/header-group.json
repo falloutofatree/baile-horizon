@@ -17,7 +17,7 @@
         "announcement_BxgCk9": {
           "type": "_announcement",
           "settings": {
-            "text": "Free Shipping on Every Order Over $95",
+            "text": "Free Shipping on Every Order",
             "link": "",
             "font": "var(--font-accent--family)",
             "font_size": "0.875rem",
@@ -83,8 +83,8 @@
         ".header__row {min-height: 100px;}"
       ],
       "settings": {
-        "reward_text": "Get $10 Off",
-        "reward_url": "https://baile.referralcandy.com/",
+        "reward_text": "",
+        "reward_url": "",
         "logo_position": "center",
         "mobile_menu": "mobile-menu",
         "menu_position": "left",
