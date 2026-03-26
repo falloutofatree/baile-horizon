@@ -26,10 +26,24 @@
             "case": "none"
           },
           "blocks": {}
+        },
+        "announcement_signup_offer": {
+          "type": "_announcement",
+          "settings": {
+            "text": "Sign Up & Save 10% on Your First Order",
+            "link": "",
+            "font": "var(--font-accent--family)",
+            "font_size": "0.875rem",
+            "weight": "",
+            "letter_spacing": "normal",
+            "case": "none"
+          },
+          "blocks": {}
         }
       },
       "block_order": [
-        "announcement_BxgCk9"
+        "announcement_BxgCk9",
+        "announcement_signup_offer"
       ],
       "name": "t:names.announcement_bar",
       "settings": {

@@ -279,6 +279,17 @@
       {{ content_for_additional_checkout_buttons }}
     </div>
   {% endif %}
+
+  <div class="cart-trust-signals">
+    <div class="cart-trust-signals__item">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+      <span>Secure Checkout</span>
+    </div>
+    <div class="cart-trust-signals__item">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      <span>Free U.S. Shipping</span>
+    </div>
+  </div>
 </div>
 
 {% stylesheet %}
@@ -582,6 +593,26 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+  }
+
+  .cart-trust-signals {
+    display: flex;
+    justify-content: center;
+    gap: var(--gap-lg, 20px);
+    padding-block-start: var(--padding-sm, 8px);
+    color: rgb(var(--color-foreground-rgb) / var(--opacity-subdued-text));
+    font-size: var(--font-size--2xs, 0.75rem);
+  }
+
+  .cart-trust-signals__item {
+    display: flex;
+    align-items: center;
+    gap: var(--gap-2xs, 6px);
+  }
+
+  .cart-trust-signals__item svg {
+    flex-shrink: 0;
+    opacity: 0.6;
   }
 
   .cart-discount__summary:hover {

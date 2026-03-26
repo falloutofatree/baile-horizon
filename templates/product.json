@@ -387,7 +387,6 @@
                 },
                 "accelerated-checkout": {
                   "type": "accelerated-checkout",
-                  "disabled": true,
                   "static": true,
                   "settings": {},
                   "blocks": {}
@@ -400,6 +399,14 @@
               "name": "Shop Pay Installments",
               "settings": {
                 "custom_liquid": "{% form 'product', product %}\n  {{ form | payment_terms }}\n{% endform %}\n<script>\ncustomElements.whenDefined('shopify-payment-terms').then(function() {\n  document.querySelectorAll('shopify-payment-terms').forEach(function(el) {\n    (function check() {\n      if (el.shadowRoot) {\n        var s = document.createElement('style');\n        s.textContent = '* { font-family: inherit !important; font-size: inherit !important; }';\n        el.shadowRoot.appendChild(s);\n      } else requestAnimationFrame(check);\n    })();\n  });\n});\n</script>"
+              },
+              "blocks": {}
+            },
+            "cl_trust_badges": {
+              "type": "custom-liquid",
+              "name": "Trust Badges",
+              "settings": {
+                "custom_liquid": "<div class='trust-badges' style='display:flex;gap:24px;justify-content:flex-start;flex-wrap:wrap;width:100%;padding:16px 0 8px;border-top:1px solid var(--color-border,#e5e5e5);margin-top:8px;'><div style='display:flex;align-items:center;gap:8px;font-size:0.85rem;color:var(--color-foreground);'><svg width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.5'><path d='M5 12h14M12 5l7 7-7 7'/></svg><span>Free U.S. Shipping</span></div><div style='display:flex;align-items:center;gap:8px;font-size:0.85rem;color:var(--color-foreground);'><svg width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.5'><rect x='3' y='11' width='18' height='11' rx='2'/><path d='M7 11V7a5 5 0 0110 0v4'/></svg><span>Secure Checkout</span></div><div style='display:flex;align-items:center;gap:8px;font-size:0.85rem;color:var(--color-foreground);'><svg width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.5'><path d='M17 1l4 4-4 4'/><path d='M3 11V9a4 4 0 014-4h14'/><path d='M7 23l-4-4 4-4'/><path d='M21 13v2a4 4 0 01-4 4H3'/></svg><span>Easy Exchanges</span></div></div>"
               },
               "blocks": {}
             },
@@ -418,6 +425,7 @@
             "variant_picker_yAyXKx",
             "buy_buttons_HEUbMQ",
             "custom_liquid_qLWLdy",
+            "cl_trust_badges",
             "cl_product_accordion"
           ]
         }
@@ -433,7 +441,7 @@
         "equal_columns": false,
         "limit_details_width": true,
         "gap": 48,
-        "enable_sticky_add_to_cart": false,
+        "enable_sticky_add_to_cart": true,
         "color_scheme": "scheme-2",
         "padding-block-start": 40,
         "padding-block-end": 40
