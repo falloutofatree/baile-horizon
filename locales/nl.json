@@ -73,8 +73,13 @@
     "nested_product": "{{ product_title }} voor {{ parent_title }}",
     "remove": "Verwijderen",
     "view_pricing_info": "Prijsinformatie bekijken",
-    "open_hotspot": "Hotspot openen",
-    "slideshow": "Diavoorstelling"
+    "slideshow": "Diavoorstelling",
+    "header_navigation_label": "Primair",
+    "home": "Home",
+    "active_filters": "Actieve filters:",
+    "product_details": "Productgegevens",
+    "show_product_details": "Productgegevens voor {{ product_name }} weergeven",
+    "featured_product": "Uitgelicht product"
   },
   "actions": {
     "add_to_cart": "Aan winkelwagen toevoegen",

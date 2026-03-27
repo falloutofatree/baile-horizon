@@ -73,8 +73,13 @@
     "nested_product": "適用於 {{ parent_title }} 的 {{ product_title }}",
     "remove": "移除",
     "view_pricing_info": "檢視定價資訊",
-    "open_hotspot": "開啟熱點",
-    "slideshow": "素材輪播"
+    "slideshow": "素材輪播",
+    "header_navigation_label": "主要",
+    "home": "首頁",
+    "active_filters": "啟用篩選條件：",
+    "product_details": "商品詳情",
+    "show_product_details": "顯示 {{ product_name }} 的商品詳情",
+    "featured_product": "精選商品"
   },
   "actions": {
     "add_to_cart": "加入購物車",

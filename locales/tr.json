@@ -73,8 +73,13 @@
     "nested_product": "{{ parent_title }} için {{ product_title }}",
     "remove": "Kaldır",
     "view_pricing_info": "Fiyatlandırma bilgilerini görüntüle",
-    "open_hotspot": "Etkin noktayı aç",
-    "slideshow": "Slayt gösterisi"
+    "slideshow": "Slayt gösterisi",
+    "header_navigation_label": "Birincil",
+    "home": "Ana Sayfa",
+    "active_filters": "Etkin filtreler:",
+    "featured_product": "Öne çıkan ürün",
+    "product_details": "Ürün ayrıntıları",
+    "show_product_details": "{{ product_name }} için ürün ayrıntılarını göster"
   },
   "actions": {
     "add_to_cart": "Sepete ekle",

@@ -74,8 +74,13 @@
     "discount_menu": "Coduri de reduceri",
     "remove": "Elimină",
     "view_pricing_info": "Vezi informațiile de tarifare",
-    "open_hotspot": "Pornește hotspot",
-    "slideshow": "Prezentare de diapozitive"
+    "slideshow": "Prezentare de diapozitive",
+    "header_navigation_label": "principală",
+    "home": "Acasă",
+    "active_filters": "Filtre active:",
+    "product_details": "Detalii produs",
+    "show_product_details": "Afișează detaliile produsului pentru {{ product_name }}",
+    "featured_product": "Produs recomandat"
   },
   "actions": {
     "add_to_cart": "Adaugă în coș",

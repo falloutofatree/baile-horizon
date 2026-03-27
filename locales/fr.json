@@ -74,8 +74,13 @@
     "nested_product": "{{ product_title }} pour {{ parent_title }}",
     "remove": "Retirer",
     "view_pricing_info": "Afficher les informations de tarification",
-    "open_hotspot": "Ouvrir le point d’accès",
-    "slideshow": "Diaporama"
+    "slideshow": "Diaporama",
+    "header_navigation_label": "Principale",
+    "home": "Accueil",
+    "active_filters": "Activez des filtres :",
+    "product_details": "Détails du produit",
+    "show_product_details": "Afficher les détails du produit pour {{ product_name }}",
+    "featured_product": "Produit en vedette"
   },
   "actions": {
     "add_to_cart": "Ajouter au panier",

@@ -23,7 +23,6 @@
     section--{{ section.settings.section_width }}
     color-{{ section.settings.color_scheme }}
     section-resource-list
-    {% if section.settings.desktop_sidebar_heading and section.settings.layout_type == 'carousel' %}section-resource-list--sidebar-heading{% endif %}
     spacing-style
     gap-style
   "
@@ -144,13 +143,6 @@
         }
       ],
       "default": "grid"
-    },
-    {
-      "type": "checkbox",
-      "id": "desktop_sidebar_heading",
-      "label": "t:settings.desktop_sidebar_heading",
-      "default": false,
-      "visible_if": "{{ section.settings.layout_type == 'carousel' }}"
     },
     {
       "type": "checkbox",

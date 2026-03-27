@@ -73,8 +73,13 @@
     "discount_menu": "Kedvezménykódok",
     "remove": "Eltávolítás",
     "view_pricing_info": "Árképzési adatok megtekintése",
-    "open_hotspot": "Hotspot megnyitása",
-    "slideshow": "Diavetítés"
+    "slideshow": "Diavetítés",
+    "header_navigation_label": "Elsődleges",
+    "home": "Kezdőlap",
+    "active_filters": "Aktív szűrők:",
+    "product_details": "Termékadatok",
+    "show_product_details": "A(z) {{ product_name }} termékadatainak megjelenítése",
+    "featured_product": "Kiemelt termék"
   },
   "actions": {
     "add_to_cart": "Hozzáadás a kosárhoz",

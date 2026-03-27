@@ -73,8 +73,13 @@
     "discount_menu": "Κωδικοί έκπτωσης",
     "remove": "Κατάργηση",
     "view_pricing_info": "Προβολή πληροφοριών τιμολόγησης",
-    "open_hotspot": "Άνοιγμα hotspot",
-    "slideshow": "Προβολή διαφανειών"
+    "slideshow": "Προβολή διαφανειών",
+    "header_navigation_label": "Κύρια",
+    "home": "Αρχική",
+    "active_filters": "Ενεργά φίλτρα:",
+    "product_details": "Λεπτομέρειες προϊόντος",
+    "show_product_details": "Εμφάνιση λεπτομερειών προϊόντος για {{ product_name }}",
+    "featured_product": "Προτεινόμενο προϊόν"
   },
   "actions": {
     "add_to_cart": "Προσθήκη στο καλάθι",

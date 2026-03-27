@@ -86,7 +86,6 @@
       ],
       "name": "t:names.hero",
       "settings": {
-        "toggle_decorative_border": true,
         "media_type_1": "image",
         "image_1": "shopify://shop_images/000091130025.jpg",
         "media_type_2": "image",
@@ -107,8 +106,6 @@
         "section_width": "page-width",
         "section_height": "large",
         "section_height_custom": 50,
-        "aspect_ratio": "adapt",
-        "aspect_ratio_mobile": "adapt",
         "color_scheme": "scheme-5",
         "toggle_overlay": true,
         "overlay_color": "#00000026",
@@ -134,7 +131,6 @@
               "type": "_blog-post-image",
               "static": true,
               "settings": {
-                "image_ratio": "square",
                 "border": "none",
                 "border_width": 1,
                 "border_opacity": 100,
@@ -205,15 +201,6 @@
         }
       },
       "settings": {
-        "columns": "4",
-        "columns_mobile": "1",
-        "show_hero_post": false,
-        "posts_per_page": 12,
-        "pagination_type": "infinite_scroll",
-        "view_more_text": "View more",
-        "view_more_style": "button",
-        "columns_gap": 36,
-        "rows_gap": 36,
         "color_scheme": "scheme-2",
         "padding-block-start": 48,
         "padding-block-end": 48

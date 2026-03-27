@@ -50,9 +50,7 @@
           "settings": {
             "hide_logo_on_home_page": false,
             "padding-block-start": 25,
-            "padding-block-end": 20,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
+            "padding-block-end": 20
           },
           "blocks": {}
         },
@@ -83,10 +81,7 @@
         ".header__row {min-height: 100px;}"
       ],
       "settings": {
-        "reward_text": "",
-        "reward_url": "",
         "logo_position": "center",
-        "mobile_menu": "mobile-menu",
         "menu_position": "left",
         "menu_row": "top",
         "show_search": true,

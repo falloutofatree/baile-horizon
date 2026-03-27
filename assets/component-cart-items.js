@@ -44,6 +44,7 @@ class CartItemsComponent extends Component {
     super.disconnectedCallback();
 
     document.removeEventListener(ThemeEvents.cartUpdate, this.#handleCartUpdate);
+    document.removeEventListener(ThemeEvents.discountUpdate, this.handleDiscountUpdate);
     document.removeEventListener(ThemeEvents.quantitySelectorUpdate, this.#debouncedOnChange);
   }
 
@@ -191,7 +192,7 @@ class CartItemsComponent extends Component {
           })
         );
 
-        morphSection(this.sectionId, parsedResponseText.sections[this.sectionId], this.isDrawer ? 'hydration' : 'full');
+        morphSection(this.sectionId, parsedResponseText.sections[this.sectionId], this.isDrawer ? 'hydration' : 'full', { injectStylesheet: true });
 
         this.#updateCartQuantitySelectorButtonStates();
       })
@@ -250,7 +251,7 @@ class CartItemsComponent extends Component {
 
     const cartItemsHtml = event.detail.data.sections?.[this.sectionId];
     if (cartItemsHtml) {
-      morphSection(this.sectionId, cartItemsHtml);
+      morphSection(this.sectionId, cartItemsHtml, 'full', { injectStylesheet: true });
 
       // Update button states for all cart quantity selectors after morph
       this.#updateCartQuantitySelectorButtonStates();

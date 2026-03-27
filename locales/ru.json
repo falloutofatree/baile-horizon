@@ -75,8 +75,13 @@
     "discount_menu": "Коды скидок",
     "remove": "Удалить",
     "view_pricing_info": "Посмотреть информацию о ценах",
-    "open_hotspot": "Открыть точку наибольшей активности",
-    "slideshow": "Слайд-шоу"
+    "slideshow": "Слайд-шоу",
+    "header_navigation_label": "Основная",
+    "home": "Главная",
+    "active_filters": "Активные фильтры:",
+    "product_details": "Подробности о товаре",
+    "show_product_details": "Показать подробности о товаре {{ product_name }}",
+    "featured_product": "Рекомендуемый товар"
   },
   "actions": {
     "add_to_cart": "Добавить в корзину",

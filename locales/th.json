@@ -73,8 +73,13 @@
     "nested_product": "{{ product_title }} สำหรับ {{ parent_title }}",
     "remove": "ลบ",
     "view_pricing_info": "ดูข้อมูลการกำหนดราคา",
-    "open_hotspot": "เปิดฮอตสปอต",
-    "slideshow": "สไลด์โชว์"
+    "slideshow": "สไลด์โชว์",
+    "header_navigation_label": "หลัก",
+    "home": "หน้าแรก",
+    "active_filters": "ตัวกรองที่ใช้งานอยู่:",
+    "product_details": "รายละเอียดสินค้า",
+    "show_product_details": "แสดงรายละเอียดสินค้าสำหรับ {{ product_name }}",
+    "featured_product": "สินค้าแนะนำ"
   },
   "actions": {
     "add_to_cart": "เพิ่มลงในตะกร้าสินค้า",

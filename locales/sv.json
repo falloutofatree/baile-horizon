@@ -73,8 +73,13 @@
     "nested_product": "{{ product_title }} för {{ parent_title }}",
     "remove": "Ta bort",
     "view_pricing_info": "Visa prissättningsinformation",
-    "open_hotspot": "Öppna hotspot",
-    "slideshow": "Bildspel"
+    "slideshow": "Bildspel",
+    "header_navigation_label": "Primär",
+    "home": "Hem",
+    "active_filters": "Aktiva filter:",
+    "product_details": "Produktdetaljer",
+    "show_product_details": "Visa produktdetaljer för {{ product_name }}",
+    "featured_product": "Utvald produkt"
   },
   "actions": {
     "add_to_cart": "Lägg till i varukorgen",

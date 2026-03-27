@@ -73,8 +73,13 @@
     "nested_product": "{{ product_title }} für {{ parent_title }}",
     "remove": "Entfernen",
     "view_pricing_info": "Preisinformationen anzeigen",
-    "open_hotspot": "Hotspot öffnen",
-    "slideshow": "Slideshow"
+    "slideshow": "Slideshow",
+    "header_navigation_label": "Haupt-",
+    "home": "Startseite",
+    "active_filters": "Aktive Filter:",
+    "product_details": "Produktdetails",
+    "show_product_details": "Produktdetails für {{ product_name }} anzeigen",
+    "featured_product": "Vorgestelltes Produkt"
   },
   "actions": {
     "add_to_cart": "In den Warenkorb legen",

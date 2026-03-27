@@ -73,8 +73,13 @@
     "discount_menu": "Mã giảm giá",
     "remove": "Xóa",
     "view_pricing_info": "Xem thông tin về giá",
-    "open_hotspot": "Mở điểm phát sóng",
-    "slideshow": "Bản trình chiếu"
+    "slideshow": "Bản trình chiếu",
+    "header_navigation_label": "Chính",
+    "home": "Trang chủ",
+    "active_filters": "Bộ lọc đang hoạt động:",
+    "product_details": "Chi tiết sản phẩm",
+    "show_product_details": "Hiển thị chi tiết sản phẩm {{ product_name }}",
+    "featured_product": "Sản phẩm nổi bật"
   },
   "actions": {
     "add_to_cart": "Thêm vào giỏ hàng",
