@@ -14,8 +14,6 @@ shopify theme push   # Deploy to Shopify
 shopify theme pull   # Pull latest from Shopify admin
 ```
 
-See `README.md` for the full git-based workflow (syncing admin changes, handling Theme Store updates).
-
 ## Editor Tooling
 
 `assets/jsconfig.json` enables `checkJs: true` with `strictNullChecks` and maps `@theme/*` paths for IDE support. Use JSDoc annotations to match the existing codebase style.
