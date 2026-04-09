@@ -10,7 +10,7 @@ Edit `.liquid`, `.js`, `.css`, and `.json` files directly — no build step requ
 
 ## Guidelines
 
-- **Pull before you start.** Always pull the latest from the remote before making changes. If you can't pull, surface it as a blocker and stop.
+- **Pull before you start.** Always pull the latest before making changes. If you can't, surface it as a blocker and stop.
 - **Minimize stock file edits.** Prefer adding new files over modifying stock Horizon files. When stock files must be changed, keep edits small so theme updates are easier to merge.
 - **Commit raw theme updates before fixing them.** When pulling in a theme update, commit it as-is first, then fix regressions in separate commits.
 - **Default new settings to their intended production state.** Don't ship features OFF that you'll immediately enable in the admin.
