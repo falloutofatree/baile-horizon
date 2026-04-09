@@ -15,7 +15,6 @@ Edit `.liquid`, `.js`, `.css`, and `.json` files directly — no build step requ
 - **Commit raw theme updates before fixing them.** When pulling in a theme update, commit it as-is first, then fix regressions (broken sections, missing settings, overwritten custom code) in separate commits. This keeps the vendor diff reviewable.
 - **Default new settings to their intended production state.** Don't ship features OFF that you'll immediately enable in the admin — that creates unnecessary divergence between code and live settings.
 
-## Never Commit
+## Protect `config/settings_data.json`
 
-- `config/settings_data.json` — live merchant settings (git-ignored and shopify-ignored). Committing this can overwrite store customizations.
-- Note: `.shopifyignore` also blocks `settings_data.json` from deploys, so settings only flow one way (admin to local via pull, never pushed back).
+This file contains live merchant settings. Committing or deploying it can overwrite store customizations. Exclude it from both `.gitignore` and `.shopifyignore` so settings only flow one way — admin to local via pull, never pushed back.
