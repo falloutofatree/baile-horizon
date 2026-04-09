@@ -2,7 +2,7 @@
 
 ## Project
 
-This store uses the stock [Shopify Horizon theme](https://themes.shopify.com/themes/horizon). Follow standard Horizon theme conventions and architecture (Web Components via `assets/component.js`, declarative event binding with `on:{event}` attributes, `@theme/*` import maps, Section Rendering API, etc.) when making changes.
+This store uses the stock [Shopify Horizon theme](https://github.com/Shopify/horizon). Follow standard Horizon conventions when making changes: server-rendered Liquid first, vanilla Web Components (via `assets/component.js`), theme blocks as first-class components, declarative `on:{event}` binding, `@theme/*` import maps, and native HTML elements over custom JS. See Shopify's `.cursor/rules/` in the Horizon repo for detailed standards.
 
 ## Development
 
