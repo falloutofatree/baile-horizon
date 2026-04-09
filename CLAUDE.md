@@ -2,13 +2,11 @@
 
 ## Project
 
-**Baile-Horizon** is the stock [Shopify Horizon theme](https://themes.shopify.com/themes/horizon) (v3.3.1) for `shopbaile.myshopify.com`. No customizations have been made to the theme code yet — all JS, CSS, Liquid, and settings are as shipped from the Theme Store.
-
-Follow standard Horizon theme conventions and architecture (Web Components via `assets/component.js`, declarative event binding with `on:{event}` attributes, `@theme/*` import maps, Section Rendering API, etc.) when making changes.
+This store uses the stock [Shopify Horizon theme](https://themes.shopify.com/themes/horizon). Follow standard Horizon theme conventions and architecture (Web Components via `assets/component.js`, declarative event binding with `on:{event}` attributes, `@theme/*` import maps, Section Rendering API, etc.) when making changes.
 
 ## Development
 
-No build step, no npm, no linter, no tests. Edit `.liquid`, `.js`, `.css`, and `.json` files directly.
+Edit `.liquid`, `.js`, `.css`, and `.json` files directly — no build step required.
 
 ```bash
 shopify theme dev    # Local dev server with hot reload
@@ -28,7 +26,7 @@ See `README.md` for the full git-based workflow (syncing admin changes, handling
 - **Minimize stock file edits.** Prefer adding new files (sections, snippets, blocks, JS/CSS) over modifying stock Horizon files. When stock files must be changed, keep edits small so Theme Store updates are easier to merge.
 - **Commit raw theme updates before fixing them.** When pulling in a Theme Store update, commit it as-is first, then fix regressions (broken sections, missing settings, overwritten custom code) in separate commits. This keeps the vendor diff reviewable.
 - **Default new settings to their intended production state.** Don't ship features OFF that you'll immediately enable in the admin — that creates unnecessary divergence between code and live settings.
-- **Verify with `shopify theme dev`.** No tests or linter exist. The local dev server is the only way to verify changes work.
+- **Verify with `shopify theme dev`.** Use the local dev server to verify changes work before pushing.
 
 ## Never Commit
 
