@@ -8,13 +8,10 @@ This store uses the stock [Shopify Horizon theme](https://github.com/Shopify/hor
 
 Edit `.liquid`, `.js`, `.css`, and `.json` files directly — no build step required.
 
-## Rules of Thumb
+## Guidelines
 
-- **Pull before you start.** Before starting work, pull the latest theme files and check for admin-side or theme update changes. Commit those before layering on new work.
-- **Minimize stock file edits.** Prefer adding new files (sections, snippets, blocks, JS/CSS) over modifying stock Horizon files. When stock files must be changed, keep edits small so theme updates are easier to merge.
-- **Commit raw theme updates before fixing them.** When pulling in a theme update, commit it as-is first, then fix regressions (broken sections, missing settings, overwritten custom code) in separate commits. This keeps the vendor diff reviewable.
-- **Default new settings to their intended production state.** Don't ship features OFF that you'll immediately enable in the admin — that creates unnecessary divergence between code and live settings.
-
-## Protect `config/settings_data.json`
-
-This file contains live merchant settings. Committing or deploying it can overwrite store customizations. Exclude it from both `.gitignore` and `.shopifyignore` so settings only flow one way — admin to local via pull, never pushed back.
+- **Pull before you start.** Always pull the latest from the remote before making changes. If you can't pull, surface it as a blocker and stop.
+- **Minimize stock file edits.** Prefer adding new files over modifying stock Horizon files. When stock files must be changed, keep edits small so theme updates are easier to merge.
+- **Commit raw theme updates before fixing them.** When pulling in a theme update, commit it as-is first, then fix regressions in separate commits.
+- **Default new settings to their intended production state.** Don't ship features OFF that you'll immediately enable in the admin.
+- **Never commit or deploy `config/settings_data.json`.** It contains live merchant settings. Exclude it from both `.gitignore` and `.shopifyignore` so settings only flow one way — admin to local, never pushed back.
