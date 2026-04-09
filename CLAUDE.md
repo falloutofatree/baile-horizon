@@ -8,21 +8,14 @@ This store uses the stock [Shopify Horizon theme](https://themes.shopify.com/the
 
 Edit `.liquid`, `.js`, `.css`, and `.json` files directly — no build step required.
 
-```bash
-shopify theme dev    # Local dev server with hot reload
-shopify theme push   # Deploy to Shopify
-shopify theme pull   # Pull latest from Shopify admin
-```
-
 ## Rules of Thumb
 
-- **Pull before you start.** Run `shopify theme pull && git diff` before starting work to catch admin-side or Theme Store changes. Commit those before layering on new work.
-- **Minimize stock file edits.** Prefer adding new files (sections, snippets, blocks, JS/CSS) over modifying stock Horizon files. When stock files must be changed, keep edits small so Theme Store updates are easier to merge.
-- **Commit raw theme updates before fixing them.** When pulling in a Theme Store update, commit it as-is first, then fix regressions (broken sections, missing settings, overwritten custom code) in separate commits. This keeps the vendor diff reviewable.
+- **Pull before you start.** Before starting work, pull the latest theme files and check for admin-side or theme update changes. Commit those before layering on new work.
+- **Minimize stock file edits.** Prefer adding new files (sections, snippets, blocks, JS/CSS) over modifying stock Horizon files. When stock files must be changed, keep edits small so theme updates are easier to merge.
+- **Commit raw theme updates before fixing them.** When pulling in a theme update, commit it as-is first, then fix regressions (broken sections, missing settings, overwritten custom code) in separate commits. This keeps the vendor diff reviewable.
 - **Default new settings to their intended production state.** Don't ship features OFF that you'll immediately enable in the admin — that creates unnecessary divergence between code and live settings.
-- **Verify with `shopify theme dev`.** Use the local dev server to verify changes work before pushing.
 
 ## Never Commit
 
 - `config/settings_data.json` — live merchant settings (git-ignored and shopify-ignored). Committing this can overwrite store customizations.
-- Note: `.shopifyignore` also blocks `settings_data.json` from `shopify theme push`, so settings only flow one way (admin to local via `pull`, never pushed back). This diverges from the upstream [shopify-theme-init](https://github.com/falloutofatree/shopify-theme-init) default, which allows settings to sync on push.
+- Note: `.shopifyignore` also blocks `settings_data.json` from deploys, so settings only flow one way (admin to local via pull, never pushed back).
